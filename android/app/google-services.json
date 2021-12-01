@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "563997515414",
+    "project_id": "cse-mitra-4bbb2",
+    "storage_bucket": "cse-mitra-4bbb2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563997515414:android:ba1659189c809f56876cb7",
+        "android_client_info": {
+          "package_name": "com.example.mitra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563997515414-l8v0r5ukmh7d5ciu6r0t8vcdp8d2f7td.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPCdpWKZZ3hTNd7gZN8XQyBHQHtZaKaP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563997515414-l8v0r5ukmh7d5ciu6r0t8vcdp8d2f7td.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
