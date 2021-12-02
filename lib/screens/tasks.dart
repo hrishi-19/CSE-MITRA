@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mitra/widgets/todocard.dart';
+import 'package:mitra/screens/taskpage.dart';
+import 'package:mitra/widgets/taskcard.dart';
 class Tasks extends StatefulWidget {
   const Tasks({Key? key}) : super(key: key);
 
@@ -16,30 +17,56 @@ class _TasksState extends State<Tasks> {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          padding:EdgeInsets.symmetric(horizontal: 20,vertical: 30),
+          padding:EdgeInsets.symmetric(horizontal: 20),
           child: Stack(
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Padding(padding: EdgeInsets.only(bottom: 30)),
                   Image(image: AssetImage('assets/images/todo.jpg'),
                     width: 50,height: 50,),
-                  Taskcard(
-                    title: 'adp',
-                    desc: 'maja',
-                  ),
-                  Taskcard(
-                    title: 'Flutter',
-                    desc: 'challa',
-                  )
+                 Expanded(
+                   child: ListView(
+                      children: [
+                        Taskcard(
+                          title: 'adp',
+                          desc: 'maja',
+                        ),
+                        Taskcard(
+                          title: 'Flutter',
+                          desc: 'challah',
+                        ),Taskcard(
+                          title: 'adp',
+                          desc: 'maja',
+                        ),
+                        Taskcard(
+                          title: 'Flutter',
+                          desc: 'challah',
+                        ),
+                        Taskcard(
+                          title: 'adp',
+                          desc: 'maja',
+                        ),
+                        Taskcard(
+                          title: 'Flutter',
+                          desc: 'challah',
+                        )
+                      ],
+                   ),
+                 )
 
                 ],
               ),
               Positioned(
-                bottom: 0.0,
+                bottom: 10,
                 right: 0.0,
                   child: FloatingActionButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(
+                        builder:(context)=>TaskPage()
+                      ));
+                    },
                     child: Icon(
                       Icons.add,
                     ),

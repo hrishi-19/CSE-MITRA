@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class TodoHome extends StatelessWidget {
   const TodoHome({Key? key}) : super(key: key);
@@ -17,10 +18,12 @@ class TodoHome extends StatelessWidget {
               margin: EdgeInsets.only(
                 bottom: 35
               ),
+              color: Colors.purple,
               child: Image(
-                    image: AssetImage('assets/images/todo.jpg'),
+                image: AssetImage("assets/images/todo.jpg"),
+              )
                 ),
-            ),
+            Text("add")
           ],
         ),
       )
