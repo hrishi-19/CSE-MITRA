@@ -6,27 +6,25 @@ class TodoHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[200],
-      body:Container(
-        padding: EdgeInsets.all(20),
-        margin: EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                bottom: 35
+        backgroundColor: Colors.purple[200],
+        body:Container(
+          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                  margin: EdgeInsets.only(
+                      bottom: 35
+                  ),
+                  color: Colors.purple,
+                  child:Text("hello")
               ),
-              color: Colors.purple,
-              child: Image(
-                image: AssetImage("assets/images/todo.jpg"),
-              )
-                ),
-            Text("add")
-          ],
-        ),
-      )
+              Text("add")
+            ],
+          ),
+        )
     );
   }
 }

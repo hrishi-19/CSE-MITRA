@@ -36,21 +36,6 @@ class _TasksState extends State<Tasks> {
                         Taskcard(
                           title: 'Flutter',
                           desc: 'challah',
-                        ),Taskcard(
-                          title: 'adp',
-                          desc: 'maja',
-                        ),
-                        Taskcard(
-                          title: 'Flutter',
-                          desc: 'challah',
-                        ),
-                        Taskcard(
-                          title: 'adp',
-                          desc: 'maja',
-                        ),
-                        Taskcard(
-                          title: 'Flutter',
-                          desc: 'challah',
                         )
                       ],
                    ),
