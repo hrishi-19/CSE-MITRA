@@ -21,7 +21,7 @@ class Taskcard extends StatelessWidget {
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title??"un named task",
+            Text(title,
               style: TextStyle(
                   color: Color(0XFF211551),
                   fontSize: 22,
@@ -30,7 +30,7 @@ class Taskcard extends StatelessWidget {
             Padding(padding: EdgeInsets.only(
                 top: 20
             )),
-            Text(desc??"display",
+            Text(desc,
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Color(0XFF868290),
