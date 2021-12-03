@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mitra/screens/taskpage.dart';
 import 'package:mitra/widgets/taskcard.dart';
+import 'package:mitra/widgets/todo.dart';
 class Tasks extends StatefulWidget {
   const Tasks({Key? key}) : super(key: key);
 
@@ -26,8 +26,8 @@ class _TasksState extends State<Tasks> {
                   Padding(padding: EdgeInsets.only(bottom: 30)),
                   Image(image: AssetImage('assets/images/todo.jpg'),
                     width: 50,height: 50,),
-                 Expanded(
-                   child: ListView(
+                  Expanded(
+                    child: ListView(
                       children: [
                         Taskcard(
                           title: 'adp',
@@ -38,25 +38,25 @@ class _TasksState extends State<Tasks> {
                           desc: 'challah',
                         )
                       ],
-                   ),
-                 )
+                    ),
+                  )
 
                 ],
               ),
               Positioned(
                 bottom: 10,
                 right: 0.0,
-                  child: FloatingActionButton(
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(
-                        builder:(context)=>TaskPage()
-                      ));
+                child: FloatingActionButton(
+                  onPressed: (){
+                    showDialog(context: context, builder:(BuildContext context){
+                      return Todo();
+                    });
                     },
-                    child: Icon(
-                      Icons.add,
-                    ),
+                  child: Icon(
+                    Icons.add,
                   ),
                 ),
+              ),
             ],
           ),
         ),

@@ -1,43 +1,35 @@
 import 'package:flutter/material.dart';
-class Todo extends StatelessWidget {
-  final String text;
-  final bool isDone;
-  Todo({required this.text,required this.isDone});
+class Todo extends StatefulWidget {
+  const Todo({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      child:Row(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: 15),
-            child: Container(
-              height: 20,
-              width: 20,
-              margin: EdgeInsets.only(left: 20,right: 20),
-              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-              decoration: BoxDecoration(
-                color: isDone? Colors.orange:Colors.transparent,
-                border: isDone?null:Border.all(
-                  color: Colors.black,
-                  width: 1.5
-                ),
-                borderRadius: BorderRadius.circular(6.0),
+  _TodoState createState() => _TodoState();
+}
 
-              ),
-              child: Image(
-                image: AssetImage("assets/images/check_icon.png"),
-              ),
+class _TodoState extends State<Todo> {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text("add Task"),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Enter Title",
             ),
           ),
-          Text(text,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Color(0xff221511)
-          ),)
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Enter desc"
+            ),
+          ),
+          SizedBox(height: 20,),
+          FlatButton(onPressed: (){},
+            color: Colors.green,
+          child: Text("ADD"),)
         ],
-      )
+      ),
     );
   }
 }
