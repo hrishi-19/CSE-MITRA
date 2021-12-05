@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mitra/screens/tasks.dart';
 import 'package:provider/provider.dart';
-import 'package:mitra/screens/homePage.dart';
-import 'package:mitra/provider/tasks.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  static final String title = 'Todo App';
+  const MyApp({Key? key}) : super(key: key);
 
+  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-    create: (context) => TodosProvider(),
-    child: MaterialApp(
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: title,
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        scaffoldBackgroundColor: Color(0xFFf6f5ee),
+        primaryColor: Colors.pinkAccent,
+        primarySwatch: Colors.orange,
+        accentColor: Colors.blueAccent,
       ),
-      home: HomePage(),
-    ),
-  );
+      home: const Tasks(),
+    );
+  }
 }
 
 

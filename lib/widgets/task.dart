@@ -1,83 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:provider/provider.dart';
-import 'package:mitra/model/task.dart';
-import 'package:mitra/screens/editTask.dart';
-import 'package:mitra/provider/tasks.dart';
-import 'package:mitra/utils.dart';
-
-class TodoWidget extends StatelessWidget {
-  final Todo todo;
-
-  const TodoWidget({
-    required this.todo,
-  });
+class Todo extends StatelessWidget {
+  final String text;
+  final bool isDone;
+  Todo({required this.text,required this.isDone});
 
   @override
-  Widget build(BuildContext context) => ClipRRect(
-  );
-
-  Widget buildTodo(BuildContext context) => GestureDetector(
-    onTap: () => editTodo(context, todo),
-    child: Container(
-      color: Colors.white,
-      padding: EdgeInsets.all(20),
-      child: Row(
-        children: [
-          Checkbox(
-            activeColor: Theme.of(context).primaryColor,
-            checkColor: Colors.white,
-            value: todo.isDone,
-            onChanged: (_) {
-              final provider =
-              Provider.of<TodosProvider>(context, listen: false);
-              final isDone = provider.toggleTodoStatus(todo);
-
-              Utils.showSnackBar(
-                context,
-                isDone ? 'Task completed' : 'Task marked incomplete',
-              );
-            },
-          ),
-          const SizedBox(width: 20),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  todo.title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 22,
+  Widget build(BuildContext context) {
+    return Container(
+        child:Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 15),
+              child: Container(
+                height: 20,
+                width: 20,
+                margin: EdgeInsets.only(left: 20,right: 20),
+                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                decoration: BoxDecoration(
+                  color: isDone? Colors.orange:Colors.transparent,
+                  border: isDone?null:Border.all(
+                      color: Colors.black,
+                      width: 1.5
                   ),
+                  borderRadius: BorderRadius.circular(6.0),
+
                 ),
-                if (todo.description.isNotEmpty)
-                  Container(
-                    margin: EdgeInsets.only(top: 4),
-                    child: Text(
-                      todo.description,
-                      style: TextStyle(fontSize: 20, height: 1.5),
-                    ),
-                  )
-              ],
+                child: Image(
+                  image: AssetImage("assets/images/check_icon.png"),
+                ),
+              ),
             ),
-          ),
-        ],
-      ),
-    ),
-  );
-
-  void deleteTodo(BuildContext context, Todo todo) {
-    final provider = Provider.of<TodosProvider>(context, listen: false);
-    provider.removeTodo(todo);
-
-    Utils.showSnackBar(context, 'Deleted the task');
+            Text(text,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff221511)
+              ),)
+          ],
+        )
+    );
   }
-
-  void editTodo(BuildContext context, Todo todo) => Navigator.of(context).push(
-    MaterialPageRoute(
-      builder: (context) => EditTodoPage(todo: todo),
-    ),
-  );
 }
