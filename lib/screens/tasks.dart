@@ -26,8 +26,8 @@ class _TasksState extends State<Tasks> {
                   Padding(padding: EdgeInsets.only(bottom: 30)),
                   Image(image: AssetImage('assets/images/todo.jpg'),
                     width: 50,height: 50,),
-                 Expanded(
-                   child: ListView(
+                  Expanded(
+                    child: ListView(
                       children: [
                         Taskcard(
                           title: 'adp',
@@ -38,25 +38,25 @@ class _TasksState extends State<Tasks> {
                           desc: 'challah',
                         )
                       ],
-                   ),
-                 )
+                    ),
+                  )
 
                 ],
               ),
               Positioned(
                 bottom: 10,
                 right: 0.0,
-                  child: FloatingActionButton(
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(
+                child: FloatingActionButton(
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(
                         builder:(context)=>TaskPage()
-                      ));
-                    },
-                    child: Icon(
-                      Icons.add,
-                    ),
+                    ));
+                  },
+                  child: Icon(
+                    Icons.add,
                   ),
                 ),
+              ),
             ],
           ),
         ),
