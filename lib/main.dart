@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mitra/screens/Home.dart';
 import 'package:mitra/screens/tasks.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         accentColor: Colors.blueAccent,
       ),
-      home: const Tasks(),
+      home: const Home(),
     );
   }
 }
