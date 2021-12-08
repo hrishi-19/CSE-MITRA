@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mitra/screens/notes.dart';
 class HomeWidget extends StatelessWidget {
   final String heading;
   final String description;
-  HomeWidget({required this.heading,required this.description});
+  final String route;
+  HomeWidget({required this.heading,required this.description,required this.route});
 
 
   @override
@@ -39,7 +41,9 @@ class HomeWidget extends StatelessWidget {
                     fontSize: 16
                 ),),
             ),
-            RaisedButton(onPressed: (){},color: Colors.green,
+            RaisedButton(onPressed: (){
+              Navigator.pushNamed(context, route);
+            },color: Colors.green,
             child: Text("GO",
             style: TextStyle(
               fontSize: 20,

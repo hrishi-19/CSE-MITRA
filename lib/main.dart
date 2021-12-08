@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitra/screens/Home.dart';
+import 'package:mitra/screens/notes.dart';
+import 'package:mitra/screens/pomodoro.dart';
+import 'package:mitra/screens/taskpage.dart';
 import 'package:mitra/screens/tasks.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +24,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         accentColor: Colors.blueAccent,
       ),
-      home: const Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/notes': (context) => Notes(),
+        '/pomodoro': (context) => Pomodoro(),
+        '/task':(context)=>Tasks(),
+      },
+
     );
   }
 }
