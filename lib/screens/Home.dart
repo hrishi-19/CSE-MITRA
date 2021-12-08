@@ -17,11 +17,11 @@ class Home extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Spacer(),
-              HomeWidget(heading: 'Tasks', description: 'Complete your tasks with the help of your Mitra', route: '/task',),
+              HomeWidget(heading: 'Tasks', description: 'Complete your tasks ', route: '/task',img_path: 'assets/images/todo.jpg',),
               Spacer(),
-              HomeWidget(heading:'Pomodoro', description: 'Be more productive with our work!',route: '/pomodoro',),
+              HomeWidget(heading:'Pomodoro', description: 'Be more productive with our work!',route: '/pomodoro',img_path: 'assets/images/todo.jpg'),
               Spacer(),
-              HomeWidget(heading: 'Notes', description: 'checkout the prescribed textbooks',route: '/notes',)
+              HomeWidget(heading: 'Notes', description: 'checkout the prescribed textbooks',route: '/notes',img_path: 'assets/images/todo.jpg')
 
             ],
 
