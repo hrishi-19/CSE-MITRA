@@ -13,7 +13,7 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 35),
+        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 30),
         margin: EdgeInsets.only(
             bottom: 25
         ),
@@ -22,17 +22,16 @@ class HomeWidget extends StatelessWidget {
           color: Colors.white,
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(heading,
-                  style: TextStyle(
-                      color: Color(0XFF211551),
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold
-                  ),),
+              children: [Text(heading,
+                style: TextStyle(
+                    color: Color(0XFF211551),
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold
+                ),),
                 Padding(padding: EdgeInsets.only(
                     top: 20
                 )),
@@ -58,8 +57,8 @@ class HomeWidget extends StatelessWidget {
               ],
             ),
             Container(
-              width: 40,
-              height: 40,
+              width: 60,
+              height: 60,
               child: Image(
                 image: AssetImage(img_path),
               ),
