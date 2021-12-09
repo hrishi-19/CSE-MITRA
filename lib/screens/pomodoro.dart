@@ -28,56 +28,60 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff5fbff),
-      body: Column(
-        children: [
-          Expanded(
-              child: Center(
-                child: AnimatedBuilder(
-                  animation: controller,
-                  builder: (context,child)=> Text(CountText,
-                  style: TextStyle(
-                    fontSize: 55,
-                    fontWeight: FontWeight.bold
-                  ),),
-                ),
-              )),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FloatingActionButton(onPressed: (){
-                  if(controller.isAnimating){
-                    controller.stop();
-                    setState(() {
-                      playing=false;
-                    });
-                  }else{
-                    controller.reverse(from:controller.value==0?1.0:controller.value);
-                    setState(() {
-                      playing=true;
-                    });
-                  }
-
-                },
-                child:Icon(
-                  Icons.play_arrow_rounded
-
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: EdgeInsets.only(top: 30),
+        child: Column(
+          children: [
+            Image(image: AssetImage('assets/images/pomodoro-timer.jpg')),
+            Expanded(
+                child: Center(
+                  child: AnimatedBuilder(
+                    animation: controller,
+                    builder: (context,child)=> Text(CountText,
+                    style: TextStyle(
+                      fontSize: 55,
+                      fontWeight: FontWeight.bold
+                    ),),
+                  ),
                 )),
-                SizedBox(width: 30,),
-                FloatingActionButton(onPressed: (){
-                  controller.reset();
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FloatingActionButton(onPressed: (){
+                    if(controller.isAnimating){
+                      controller.stop();
+                      setState(() {
+                        playing=false;
+                      });
+                    }else{
+                      controller.reverse(from:controller.value==0?1.0:controller.value);
+                      setState(() {
+                        playing=true;
+                      });
+                    }
+
                   },
-                    child:Icon(
-                        Icons.reset_tv
-                    )
-                )
-              ],
-            ),
-          )
-        ],
+                  child:Icon(
+                    Icons.play_arrow_rounded
+
+                  )),
+                  SizedBox(width: 30,),
+                  FloatingActionButton(onPressed: (){
+                    controller.reset();
+                    },
+                      child:Icon(
+                          Icons.reset_tv
+                      )
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
