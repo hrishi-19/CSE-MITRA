@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
                  Spacer(),
                  HomeWidget(heading:'Pomodoro', description: 'Be more productive with\n our work!',route: '/pomodoro',img_path: 'assets/images/pomodoro-timer.jpg'),
                  Spacer(),
-                 HomeWidget(heading: 'Notes', description: 'checkout the prescribed \n textbooks',route: '/notes',img_path: 'assets/images/book.jpg')
+                 HomeWidget(heading: 'Notes', description: 'checkout the prescribed \n textbooks',route: '/notes',img_path: 'assets/images/book.png')
                ],
              ))
 
