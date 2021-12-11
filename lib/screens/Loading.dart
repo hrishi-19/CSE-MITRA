@@ -28,9 +28,21 @@ class _LoaderState extends State<Loader> {
     return Scaffold(
         backgroundColor: Colors.white,
         body: Center(
-          child: SpinKitFadingCube(
-            color: Colors.purpleAccent,
-            size: 70.0,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+
+            children: [
+              Image(
+                image: AssetImage('assets/images/logo.png'),
+                width: 150,
+                height: 150,
+              ),
+              SizedBox(height: 40,),
+              SpinKitFadingCube(
+                color: Colors.purpleAccent,
+                size: 70.0,
+              ),
+            ],
           ),
         ));
   }

@@ -30,7 +30,7 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.only(top: 30),
         child: Column(
           children: [
             Image(image: AssetImage('assets/images/pomodoro-timer.jpg')),
@@ -46,7 +46,7 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
                   ),
                 )),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
