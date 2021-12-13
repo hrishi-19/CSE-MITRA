@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         accentColor: Colors.blueAccent,
       ),
-      initialRoute: '/',
+      initialRoute: '/home',
       routes: {
         '/':(context)=>SignInScreen(),
         '/home':(context)=>Home(),
