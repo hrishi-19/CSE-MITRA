@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitra/provider/authentication.dart';
 import 'package:provider/provider.dart';
 class SignInScreen extends StatefulWidget {
@@ -15,48 +16,37 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
-        gradient: LinearGradient(
-        colors: [
-        Colors.blue,
-        Colors.red,
-        ],
-    ),
-    ),
-    child: Card(
-    margin: EdgeInsets.only(top: 200, bottom: 200, left: 30, right: 30),
-    elevation: 20,
+    padding: EdgeInsets.all(20),
     child: Column(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-    Padding(
-    padding: const EdgeInsets.only(left: 20, right: 20),
-    child: MaterialButton(
-    color: Colors.teal[100],
-    elevation: 10,
-    child: Row(
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: [
-    Container(color:Colors.white ,
-    height: 30.0,
-    width: 100,
-    child: Text("Sign In with Google")
-    )
-    ],
-    ),
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image(
+          image: AssetImage('assets/images/logo.png'),
+          width: 100,height: 100,
 
-    // by onpressed we call the function signup function
-    onPressed: (){
-          authClass.googleSignin(context);
-    }
+        ),
+      SizedBox(height: 75,),
+        RaisedButton.icon(onPressed: (){authClass.googleSignin(context);},
+          label: Text("SignIn with Google"),
+          icon:FaIcon(FontAwesomeIcons.google,color: Colors.red,),
+          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+          shape: StadiumBorder(),
+
+        ),
+        SizedBox(height: 20,),
+        Text("Login to continue",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              fontWeight: FontWeight.bold
+            ),)
+      ],
     ),
-  ),
-  ]
-  ),
-  ),
   ),
   );
 }

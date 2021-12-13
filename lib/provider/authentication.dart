@@ -43,8 +43,7 @@ Future<void>googleSignin(BuildContext context)async {
   }
 }
 Future<void>signout(BuildContext context)async{
-  await _googleSignIn.disconnect();
-  FirebaseAuth.instance.signOut();
+  await auth.signOut();
   Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
 
 }
