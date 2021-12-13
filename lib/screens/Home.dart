@@ -20,15 +20,9 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.grey[100],
         body:SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(15),
             child: Column(
               children: [
-                Positioned(
-                    top: 10,right: 10,
-                    child: RaisedButton(onPressed: (){
-                      authClass.signout(context);
-                    },
-                      child: Text("sign out"),)),
                 Expanded(child: ListView(
                   children: [
                     Spacer(),
@@ -38,7 +32,17 @@ class _HomeState extends State<Home> {
                     Spacer(),
                     HomeWidget(heading: 'Notes', description: 'checkout the prescribed \n textbooks',route: '/notes',img_path: 'assets/images/book.png')
                   ],
-                ))
+                )),
+                Positioned(
+                    top: 0,right: 0,
+                    child: RaisedButton(onPressed: (){
+                      authClass.signout(context);
+
+                    },color: Colors.red,
+                      child: Text("sign out",
+                      style: TextStyle(
+                        color: Colors.white
+                      ),),)),
 
               ],
 
