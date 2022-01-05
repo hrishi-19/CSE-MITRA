@@ -24,8 +24,9 @@ class _HomeState extends State<Home> {
               children: [
                 Expanded(child: ListView(
                   children: [
-                    HomeWidget(heading:'Pomodoro', description: 'Be more productive with\n our work!',route: '/pomodoro',img_path: 'assets/images/pomodoro-timer.jpg'),
+                    HomeWidget(heading:'Attendence', description: 'Check your\n attendence',route: '/attendence',img_path: 'assets/images/attd.jpg'),
                     HomeWidget(heading: 'Assignments', description: 'upload your \n assignmenst here',route: '/notes',img_path: 'assets/images/book.png'),
+                    HomeWidget(heading:'Pomodoro', description: 'Be more productive with\n our work!',route: '/pomodoro',img_path: 'assets/images/pomodoro-timer.jpg'),
                     RaisedButton(
                       child: Text("logout"),
                       onPressed: (){authClass.signout(context);
