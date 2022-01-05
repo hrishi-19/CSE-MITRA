@@ -1,46 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:mitra/widgets/classWidget.dart';
 class Notes extends StatelessWidget {
   const Notes({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-          child: GestureDetector(
-            onTap: (){
-
-            },
-            child: Container(
-                width: 300,
-                height: 150,
-                padding: EdgeInsets.symmetric(horizontal: 20,vertical: 35),
-                margin: EdgeInsets.only(
-                    bottom: 25
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.green
-                ),
-                child:  Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        backgroundColor: Colors.white,
+        body:SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(5),
+            child: Column(
+              children: [
+                Expanded(child: ListView(
                   children: [
-                    Text("CNS NOtes",
-                      style: TextStyle(
-                          color: Color(0XFF211551),
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold
-                      ),)
+                    ClassWidget(name: 'Mangement and \n enterpreneurship', url:'assets/images/me.jpg'),
+                    ClassWidget(name: 'computer\n neworks', url:'assets/images/cns.png'),
+                    ClassWidget(name: 'Database \n management system', url: 'assets/images/dbms.png'),
+                    ClassWidget(name: 'Automate theory \n computation', url: 'assets/images/atc.png'),
+                    ClassWidget(name: 'Python', url: 'assets/images/adp.png'),
+                    ClassWidget(name: 'Linux programming', url: 'assets/images/up.jpg')
+
+
 
                   ],
-                )
+                )),
+
+
+              ],
+
             ),
           ),
-        ),
-      ),
+        )
     );
   }
 }

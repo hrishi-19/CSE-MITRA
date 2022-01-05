@@ -12,7 +12,7 @@ class Loader extends StatefulWidget {
 
 class _LoaderState extends State<Loader> {
   void spin(){
-    Future.delayed(Duration(seconds: 2),(){
+    Future.delayed(Duration(seconds: 4),(){
       Navigator.pushReplacementNamed(context, '/home');
     });
   }
@@ -30,16 +30,9 @@ class _LoaderState extends State<Loader> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-
             children: [
-              Image(
-                image: AssetImage('assets/images/logo.png'),
-                width: 150,
-                height: 150,
-              ),
-              SizedBox(height: 40,),
-              SpinKitFadingCube(
-                color: Colors.purpleAccent,
+                SpinKitSpinningLines(
+                color: Colors.blueAccent,
                 size: 70.0,
               ),
             ],

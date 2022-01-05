@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mitra/provider/authentication.dart';
 import 'package:provider/provider.dart';
 class SignInScreen extends StatefulWidget {
@@ -25,29 +26,40 @@ class _SignInScreenState extends State<SignInScreen> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image(
-          image: AssetImage('assets/images/logo.png'),
-          width: 100,height: 100,
+        Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+            color: Colors.white,
+            boxShadow: [
+           BoxShadow( color: Colors.grey.shade50,
+              offset: Offset(-4.0,-4.0),
+              spreadRadius: 1.0,
+              blurRadius: 10.0),
+              BoxShadow( color: Colors.grey.shade300,
+                  offset: Offset(4.0,4.0),
+                  spreadRadius: 1.0,
+                  blurRadius: 15.0),
+            ],
 
         ),
-      SizedBox(height: 75,),
-        RaisedButton.icon(onPressed: (){authClass.googleSignin(context);},
-          label: Text("SignIn with Google"),
-          icon:FaIcon(FontAwesomeIcons.google,color: Colors.red,),
-          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-          shape: StadiumBorder(),
+      child:FlatButton.icon(onPressed: (){authClass.googleSignin(context);},
+        label: Text("Sign In with Google",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20
+          ),),
 
+        icon:FaIcon(FontAwesomeIcons.google,color: Colors.red,),
+        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+        color: Colors.white,
+
+
+      ),
         ),
-        SizedBox(height: 20,),
-        Text("Login to continue",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.black,
-              fontWeight: FontWeight.bold
-            ),)
-      ],
-    ),
+    ],
   ),
-  );
+  )
+    );
 }
 }
