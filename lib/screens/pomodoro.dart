@@ -33,20 +33,20 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
         padding: const EdgeInsets.only(top: 30),
         child: Column(
           children: [
-            Image(image: AssetImage('assets/images/pomodoro-timer.jpg')),
+             Image(image: AssetImage('assets/images/pomodoro-timer.jpg')),
             Expanded(
                 child: Center(
                   child: AnimatedBuilder(
                     animation: controller,
                     builder: (context,child)=> Text(CountText,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 55,
                       fontWeight: FontWeight.bold
                     ),),
                   ),
                 )),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,8 +65,9 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
                     }
 
                   },
+                      elevation: 1.0,
                   child:Icon(
-                    Icons.play_arrow_rounded
+                    Icons.play_arrow_rounded,
 
                   )),
                   SizedBox(width: 30,),
@@ -75,7 +76,8 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
                     },
                       child:Icon(
                           Icons.reset_tv
-                      )
+                      ),
+                    elevation: 1.0,
                   )
                 ],
               ),

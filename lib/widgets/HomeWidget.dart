@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mitra/screens/notes.dart';
 class HomeWidget extends StatelessWidget {
   final String heading;
   final String description;
@@ -44,7 +42,7 @@ class HomeWidget extends StatelessWidget {
                   flex: 2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Text(heading,
+                    children: [Text('$heading',
                       style: TextStyle(
                           color: Color(0XFF211551),
                           fontSize: 22,
@@ -71,7 +69,8 @@ class HomeWidget extends StatelessWidget {
                               fontSize: 20,
                               color:Colors.white,
                               fontWeight: FontWeight.bold
-                          ),),)
+                          ),),
+                      )
 
                     ],
                   ),
@@ -82,7 +81,7 @@ class HomeWidget extends StatelessWidget {
                     width: 60,
                     height: 60,
                     child: Image(
-                      image: AssetImage(img_path),
+                      image: AssetImage('$img_path'),
                     ),
                   ),
                 )
