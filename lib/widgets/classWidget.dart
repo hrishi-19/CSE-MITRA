@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class ClassWidget extends StatelessWidget {
   late String name;
   late String url;
-  ClassWidget({required this.name,required this.url});
+  late String route;
+  ClassWidget({required this.name,required this.url,required this.route});
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +51,16 @@ class ClassWidget extends StatelessWidget {
                    ),),
                Padding(padding: EdgeInsets.all(10)),
                RaisedButton(onPressed: (){
-
-               },color: Colors.green,
+    Navigator.pushNamed(context,route);},color: Colors.green,
                  child: Text("Upload",
                    style: TextStyle(
                        fontSize: 20,
                        color:Colors.white,
                        fontWeight: FontWeight.bold
-                   ),),),
+                   ),),
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(10)
+               ),),
                  ],
                ),
              ),

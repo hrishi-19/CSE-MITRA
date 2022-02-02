@@ -8,6 +8,7 @@ import 'package:mitra/screens/attendence.dart';
 import 'package:mitra/screens/notes.dart';
 import 'package:mitra/screens/pomodoro.dart';
 import 'package:mitra/screens/signin.dart';
+import 'package:mitra/screens/upload_file.dart';
 import 'package:provider/provider.dart';
 
 void main()async {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.pinkAccent,
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.grey,
         accentColor: Colors.blueAccent,
       ),
       initialRoute: '/',
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         '/home':(context)=>Home(),
         '/notes': (context) => Notes(),
         '/pomodoro': (context) => Pomodoro(),
-        '/attendence':(context)=>Attendence()
+        '/attendence':(context)=>Attendence(),
+        '/upload':(context)=>upload(),
       },
 
     );
