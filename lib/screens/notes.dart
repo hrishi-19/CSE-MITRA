@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mitra/widgets/bottom_navbar.dart';
 import 'package:mitra/widgets/classWidget.dart';
 class Notes extends StatelessWidget {
   const Notes({Key? key}) : super(key: key);
@@ -32,7 +33,8 @@ class Notes extends StatelessWidget {
 
             ),
           ),
-        )
+        ),
+        bottomNavigationBar:Navbar()
     );
   }
 }
