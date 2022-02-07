@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mitra/provider/authentication.dart';
 import 'package:mitra/widgets/HomeWidget.dart';
+import 'package:mitra/widgets/bottom_navbar.dart';
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -42,7 +44,8 @@ class _HomeState extends State<Home> {
 
             ),
           ),
-        )
+        ),
+      bottomNavigationBar:Navbar()
     );
   }
 }

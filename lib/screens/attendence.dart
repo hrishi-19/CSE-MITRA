@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mitra/model/iaMark.dart';
+import 'package:mitra/widgets/bottom_navbar.dart';
 
 class Attendence extends StatefulWidget {
   const Attendence({Key? key}) : super(key: key);
@@ -12,13 +13,16 @@ class Attendence extends StatefulWidget {
 
 class _AttendenceState extends State<Attendence> {
   var data;
+  var value;
 
   Future<String> getJson() {
     return DefaultAssetBundle.of(context).loadString("data/marks.json");
   }
-  Future<Map<String,dynamic>> getData() async {
+  Future<Map<String,dynamic>> getData(String val) async {
+    data=jsonDecode(await getJson())[val];
+    print(data);
 
-   return jsonDecode(await getJson());
+   return data;
     //print(dataIndex);
   }
   @override
@@ -30,24 +34,106 @@ class _AttendenceState extends State<Attendence> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body:   Center(
-        child: FutureBuilder(
-            future: getData(),
-            builder:(context,snapshot){
-              if(snapshot.hasData) {
-                final data1 =snapshot.data as Map<String,dynamic>;
+      body:   SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(25),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Enter USN",
 
-                return Container(
-                  child: Text(data1["1by19cs012"]['name'].toString()),
-                );
+                ),
+                onChanged:(text) {
+                  value=text;
+                  print(value);
+                },
 
-              }
-              return Container(
-                color:Colors.yellow
-              );
-            }
+              ),
+              SizedBox(height: 50,),
+              RaisedButton(onPressed:(){
+                data=getData(value.toString());
+
+              },
+              child: Text("Submit",
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.white,
+              ),),
+              color: Colors.green,),
+              FutureBuilder(
+                  future:getData(value.toString()),
+                  builder:(context,snapshot){
+                    if(snapshot.hasData) {
+                      var data1=snapshot.data as dynamic;
+                      return DataTable(
+                          columns:[
+                            DataColumn(label: Text("SUJECT")),
+                            DataColumn(label: Text("IA1")),
+                            DataColumn(label: Text("IA2")),
+                            DataColumn(label: Text("IA3"))
+                          ],
+                          rows:[
+                            DataRow(cells:[
+                              DataCell(Text('up')),
+                              DataCell(Text(data1['ia1']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+
+                            ]),
+                            DataRow(cells:[
+                              DataCell(Text('cns')),
+                              DataCell(Text(data1['ia1']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+
+                            ]),
+                            DataRow(cells:[
+                              DataCell(Text('me')),
+                              DataCell(Text(data1['ia1']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+
+                            ]),
+                            DataRow(cells:[
+                              DataCell(Text('dbms')),
+                              DataCell(Text(data1['ia1']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+
+                            ]),
+                            DataRow(cells:[
+                              DataCell(Text('atc')),
+                              DataCell(Text(data1['ia1']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+
+                            ]),
+                            DataRow(cells:[
+                              DataCell(Text('adp')),
+                              DataCell(Text(data1['ia1']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+                              DataCell(Text(data1['ia2']['up'].toString())),
+
+                            ])
+
+                          ]);
+                      }
+                    else{
+                      return CircularProgressIndicator();
+                    }
+
+                  }
+              )
+
+            ],
+
+          ),
         ),
-      )
-    );
+      ),
+        bottomNavigationBar:Navbar()
+      );
+
   }
 }

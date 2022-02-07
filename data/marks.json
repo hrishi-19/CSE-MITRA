@@ -1,25 +1,6 @@
 {
   "1by19cs025": {
   "name": "Hrishikesh kamath",
-  "ia1": {
-    "cns": 25,
-    "up": 28,
-    "adp": 30,
-    "me": 29,
-    "dbms": 25,
-    "atc": 28
-  },
-  "ia2": {
-    "cns": 30,
-    "up": 30,
-    "adp": 30,
-    "me": 25,
-    "dbms": 25,
-    "atc": 30
-  }
-},
-  "1by19cs012": {
-    "name": "Amit Athreya",
     "ia1": {
       "cns": 25,
       "up": 28,
@@ -27,6 +8,25 @@
       "me": 29,
       "dbms": 25,
       "atc": 28
+    },
+    "ia2": {
+      "cns": 30,
+      "up": 30,
+      "adp": 30,
+      "me": 25,
+      "dbms": 25,
+      "atc": 30
+    }
+  },
+  "1by19cs012": {
+    "name": "Amit Athreya",
+    "ia1": {
+      "cns": 15,
+      "up": 18,
+      "adp": 20,
+      "me": 20,
+      "dbms": 25,
+      "atc": 20
     },
     "ia2": {
       "cns": 30,
