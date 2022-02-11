@@ -18,32 +18,31 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
         body:SafeArea(
-          child: Padding(
-            padding: EdgeInsets.all(5),
-            child: Column(
-              children: [
-                Expanded(child: ListView(
-                  children: [
-                    HomeWidget(heading:'Attendence', description: 'Check your\n attendence',route: '/attendence',img_path: 'assets/images/attd.jpg'),
-                    HomeWidget(heading: 'Assignments', description: 'upload your \n assignmenst here',route: '/notes',img_path: 'assets/images/book.png'),
-                    HomeWidget(heading:'Pomodoro', description: 'Be more productive with\n our work!',route: '/pomodoro',img_path: 'assets/images/pomodoro-timer.jpg'),
-                    RaisedButton(
-                      child: Text("logout"),
-                      onPressed: (){authClass.signout(context);
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/bg.jpg"),
+                    fit: BoxFit.contain
+                ),
+              ),
+              child: Column(
+                children: [
+                  Expanded(child: ListView(
+                    children: [
+                      HomeWidget(heading:'Attendence', description: 'Check your\n attendence',route: '/attendence',img_path: 'assets/images/attd.jpg'),
+                      HomeWidget(heading: 'Assignments', description: 'upload your \n assignmenst here',route: '/notes',img_path: 'assets/images/book.png'),
+                      HomeWidget(heading:'Pomodoro', description: 'Be more productive with\n our work!',route: '/pomodoro',img_path: 'assets/images/pomodoro-timer.jpg'),
 
-                      },
-                    ),
-
-                  ],
-                )),
+                    ],
+                  )),
 
 
-              ],
+                ],
 
+              ),
             ),
-          ),
         ),
       bottomNavigationBar:Navbar()
     );
