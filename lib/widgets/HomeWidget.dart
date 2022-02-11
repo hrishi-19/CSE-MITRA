@@ -53,7 +53,7 @@ class HomeWidget extends StatelessWidget {
 
                           ),),
                       ),
-                      RaisedButton(onPressed: (){
+                     RaisedButton(onPressed: (){
                         Navigator.pushNamed(context, route);
                       },color: Colors.green,
                         child: Text("GO",
