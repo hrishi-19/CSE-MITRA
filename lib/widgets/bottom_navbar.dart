@@ -13,7 +13,7 @@ class Navbar extends StatelessWidget {
         height: 60,
         backgroundColor: Colors.transparent,
         items: [
-          Icon(Icons.home,size: 40,),
+          Icon(Icons.home,size: 40),
           Icon(Icons.person,size:40)
         ],
       ),

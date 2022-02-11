@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mitra/model/iaMark.dart';
+import 'package:mitra/screens/result.dart';
 import 'package:mitra/widgets/bottom_navbar.dart';
-
 class Attendence extends StatefulWidget {
   const Attendence({Key? key}) : super(key: key);
 
@@ -20,7 +19,6 @@ class _AttendenceState extends State<Attendence> {
   }
   Future<Map<String,dynamic>> getData(String val) async {
     data=jsonDecode(await getJson())[val];
-    print(data);
 
    return data;
     //print(dataIndex);
@@ -47,13 +45,14 @@ class _AttendenceState extends State<Attendence> {
                 ),
                 onChanged:(text) {
                   value=text;
-                  print(value);
                 },
 
               ),
               SizedBox(height: 50,),
               RaisedButton(onPressed:(){
                 data=getData(value.toString());
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+                Result(data: data, usn: value,)));
 
               },
               child: Text("Submit",
@@ -62,70 +61,70 @@ class _AttendenceState extends State<Attendence> {
                 color: Colors.white,
               ),),
               color: Colors.green,),
-              FutureBuilder(
-                  future:getData(value.toString()),
-                  builder:(context,snapshot){
-                    if(snapshot.hasData) {
-                      var data1=snapshot.data as dynamic;
-                      return DataTable(
-                          columns:[
-                            DataColumn(label: Text("SUJECT")),
-                            DataColumn(label: Text("IA1")),
-                            DataColumn(label: Text("IA2")),
-                            DataColumn(label: Text("IA3"))
-                          ],
-                          rows:[
-                            DataRow(cells:[
-                              DataCell(Text('up')),
-                              DataCell(Text(data1['ia1']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-
-                            ]),
-                            DataRow(cells:[
-                              DataCell(Text('cns')),
-                              DataCell(Text(data1['ia1']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-
-                            ]),
-                            DataRow(cells:[
-                              DataCell(Text('me')),
-                              DataCell(Text(data1['ia1']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-
-                            ]),
-                            DataRow(cells:[
-                              DataCell(Text('dbms')),
-                              DataCell(Text(data1['ia1']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-
-                            ]),
-                            DataRow(cells:[
-                              DataCell(Text('atc')),
-                              DataCell(Text(data1['ia1']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-
-                            ]),
-                            DataRow(cells:[
-                              DataCell(Text('adp')),
-                              DataCell(Text(data1['ia1']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-                              DataCell(Text(data1['ia2']['up'].toString())),
-
-                            ])
-
-                          ]);
-                      }
-                    else{
-                      return CircularProgressIndicator();
-                    }
-
-                  }
-              )
+              // FutureBuilder(
+              //     future:getData(value.toString()),
+              //     builder:(context,snapshot){
+              //       if(snapshot.hasData) {
+              //         var data1=snapshot.data as dynamic;
+              //         return DataTable(
+              //             columns:[
+              //               DataColumn(label: Text("SUJECT")),
+              //               DataColumn(label: Text("IA1")),
+              //               DataColumn(label: Text("IA2")),
+              //               DataColumn(label: Text("IA3"))
+              //             ],
+              //             rows:[
+              //               DataRow(cells:[
+              //                 DataCell(Text('up')),
+              //                 DataCell(Text(data1['ia1']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //
+              //               ]),
+              //               DataRow(cells:[
+              //                 DataCell(Text('cns')),
+              //                 DataCell(Text(data1['ia1']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //
+              //               ]),
+              //               DataRow(cells:[
+              //                 DataCell(Text('me')),
+              //                 DataCell(Text(data1['ia1']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //
+              //               ]),
+              //               DataRow(cells:[
+              //                 DataCell(Text('dbms')),
+              //                 DataCell(Text(data1['ia1']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //
+              //               ]),
+              //               DataRow(cells:[
+              //                 DataCell(Text('atc')),
+              //                 DataCell(Text(data1['ia1']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //
+              //               ]),
+              //               DataRow(cells:[
+              //                 DataCell(Text('adp')),
+              //                 DataCell(Text(data1['ia1']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //                 DataCell(Text(data1['ia2']['up'].toString())),
+              //
+              //               ])
+              //
+              //             ]);
+              //         }
+              //       else{
+              //         return CircularProgressIndicator();
+              //       }
+              //
+              //     }
+              // )
 
             ],
 
