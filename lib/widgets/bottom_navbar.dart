@@ -9,7 +9,7 @@ class Navbar extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white)
       ),
       child: CurvedNavigationBar(
-        color: Colors.grey,
+        color: Color(0xFF512DA8),
         height: 60,
         backgroundColor: Colors.transparent,
         items: [

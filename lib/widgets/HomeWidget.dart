@@ -17,23 +17,15 @@ class HomeWidget extends StatelessWidget {
             width:constraints.maxWidth,
             padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
             margin: EdgeInsets.only(
-                bottom: 25
+                bottom: 25,
             ),
             decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/homeCard.jpg"),
+                fit: BoxFit.cover
+              ),
               borderRadius: BorderRadius.circular(40),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.shade300,
-                  offset: Offset(4.0,4.0),
-                  spreadRadius: 1.0,
-                  blurRadius: 10.0),
-                BoxShadow(
-                    color: Colors.grey.shade50,
-                    offset: Offset(-4.0,-4.0),
-                    spreadRadius: 1.0,
-                    blurRadius: 10.0),
-              ]
+
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,7 +48,7 @@ class HomeWidget extends StatelessWidget {
                         child: Text(description,
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              color: Color(0XFF868290),
+                              color: Color(0XFF868290 ),
                               fontSize: 16,
 
                           ),),
