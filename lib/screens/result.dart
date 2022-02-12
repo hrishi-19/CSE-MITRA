@@ -13,7 +13,7 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
- Map<String,dynamic>data;
+Map<String,dynamic>data;
  String usn;
   _ResultState(this.data,this.usn);
 
@@ -42,7 +42,8 @@ class _ResultState extends State<Result> {
                          children: [
                            Expanded(
                              flex: 1,
-                             child: Text("NAME:"+data['name']))
+                             child: Text("NAME:"+data["name"])
+                           )
                          ],
                        ),
                      ),
@@ -50,62 +51,60 @@ class _ResultState extends State<Result> {
                     Expanded(
                       flex: 1,
                       child: Center(
-                        child: DataTable(
-                            columns:[
-                              DataColumn(label: Text("SUBJECT")),
-                              DataColumn(label: Text("IA1")),
-                              DataColumn(label: Text("IA2")),
-                              DataColumn(label: Text("IA3"))
-                            ],
-                            rows:[
-                              DataRow(cells:[
-                                DataCell(Text('up')),
-                                DataCell(Text(data['ia1']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
+                        child:DataTable(
+                                  columns: [
+                                    DataColumn(label: Text("SUBJECT")),
+                                    DataColumn(label: Text("IA1")),
+                                    DataColumn(label: Text("IA2")),
+                                    DataColumn(label: Text("IA3"))
+                                  ],
+                                  rows: [
+                                    DataRow(cells: [
+                                      DataCell(Text('up')),
+                                      DataCell(Text(data['ia1']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
 
-                              ]),
-                              DataRow(cells:[
-                                DataCell(Text('cns')),
-                                DataCell(Text(data['ia1']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('cns')),
+                                      DataCell(Text(data['ia1']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
 
-                              ]),
-                              DataRow(cells:[
-                                DataCell(Text('me')),
-                                DataCell(Text(data['ia1']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('me')),
+                                      DataCell(Text(data['ia1']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
 
-                              ]),
-                              DataRow(cells:[
-                                DataCell(Text('dbms')),
-                                DataCell(Text(data['ia1']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('dbms')),
+                                      DataCell(Text(data['ia1']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
 
-                              ]),
-                              DataRow(cells:[
-                                DataCell(Text('atc')),
-                                DataCell(Text(data['ia1']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('atc')),
+                                      DataCell(Text(data['ia1']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
 
-                              ]),
-                              DataRow(cells:[
-                                DataCell(Text('adp')),
-                                DataCell(Text(data['ia1']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
-                                DataCell(Text(data['ia2']['up'].toString())),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('adp')),
+                                      DataCell(Text(data['ia1']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
+                                      DataCell(Text(data['ia2']['up'].toString())),
 
-                              ])
-
-                            ]),
+                                    ])]
                       ),
                     ),
 
-                  ],
+                      )],
                 ),
               ),
               bottomNavigationBar: Navbar(),

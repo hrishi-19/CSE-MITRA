@@ -12,7 +12,8 @@ class Attendence extends StatefulWidget {
 
 class _AttendenceState extends State<Attendence> {
   var data;
-  var value;
+  var wordup;
+  var marks;
 
   Future<String> getJson() {
     return DefaultAssetBundle.of(context).loadString("data/marks.json");
@@ -44,15 +45,17 @@ class _AttendenceState extends State<Attendence> {
 
                 ),
                 onChanged:(text) {
-                  value=text;
+                  wordup=text;
                 },
 
               ),
               SizedBox(height: 50,),
               RaisedButton(onPressed:(){
-                data=getData(value.toString());
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
-                Result(data: data, usn: value,)));
+                getData(wordup.toString()).then((value) =>
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+                        Result(data: value, usn: wordup,)))
+                );
+
 
               },
               child: Text("Submit",
