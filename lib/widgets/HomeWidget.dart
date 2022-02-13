@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mitra/screens/upload_file.dart';
 class HomeWidget extends StatelessWidget {
   final String heading;
   final String description;
@@ -54,7 +55,8 @@ class HomeWidget extends StatelessWidget {
                           ),),
                       ),
                      RaisedButton(onPressed: (){
-                        Navigator.pushNamed(context, route);
+                       print(route);
+                      Navigator.pushNamed(context, route);
                       },color: Colors.green,
                         child: Text("GO",
                           style: TextStyle(
