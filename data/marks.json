@@ -19,7 +19,17 @@
       "me": 25,
       "dbms": 25,
       "atc": 30
+    },
+    "ia3": {
+      "cns": 30,
+      "up": 30,
+      "adp": 30,
+      "me": 25,
+      "dbms": 25,
+      "atc": 30
+
     }
+
   },
   "1by19cs012": {
     "name": "Amit Athreya",
@@ -41,6 +51,46 @@
       "me": 25,
       "dbms": 25,
       "atc": 30
+    },
+    "ia3": {
+      "cns": 30,
+      "up": 30,
+      "adp": 30,
+      "me": 25,
+      "dbms": 25,
+      "atc": 30
+
+    }
+  },
+  "1by19cs020": {
+    "name": "Arun Athreya",
+    "course": "computer science",
+    "sem": 5,
+    "sec": "a",
+    "ia1": {
+      "cns": 15,
+      "up": 18,
+      "adp": 20,
+      "me": 20,
+      "dbms": 25,
+      "atc": 20
+    },
+    "ia2": {
+      "cns": 30,
+      "up": 30,
+      "adp": 30,
+      "me": 25,
+      "dbms": 25,
+      "atc": 30
+    },
+    "ia3": {
+      "cns": 30,
+      "up": 30,
+      "adp": 30,
+      "me": 25,
+      "dbms": 25,
+      "atc": 30
+
     }
   }
 }

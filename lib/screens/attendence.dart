@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mitra/screens/result.dart';
+import 'package:mitra/utility/iaMark.dart';
 import 'package:mitra/widgets/bottom_navbar.dart';
 class Attendence extends StatefulWidget {
   const Attendence({Key? key}) : super(key: key);
@@ -13,15 +14,23 @@ class Attendence extends StatefulWidget {
 class _AttendenceState extends State<Attendence> {
   var data;
   var wordup;
-  var marks;
+  late MarkResult res;
 
   Future<String> getJson() {
     return DefaultAssetBundle.of(context).loadString("data/marks.json");
   }
-  Future<Map<String,dynamic>> getData(String val) async {
+  Future<MarkResult> getData(String val) async {
     data=jsonDecode(await getJson())[val];
+    res=MarkResult(name: data['name'],
+        course: data['course'],
+        sem: data['sem'],
+        sec: data['sec'],
+        ia1: data['ia1'],
+        ia2: data['ia2'],
+        ia3: data['ia3']);
 
-   return data;
+  print(res);
+   return res;
     //print(dataIndex);
   }
   @override
