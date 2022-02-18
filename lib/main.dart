@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitra/screens/Home.dart';
+import 'package:mitra/screens/menu.dart';
 import 'package:mitra/screens/Loading.dart';
-import 'package:mitra/screens/Show.dart';
+import 'package:mitra/screens/home.dart';
 import 'package:mitra/screens/attendence.dart';
 import 'package:mitra/screens/notes.dart';
 import 'package:mitra/screens/pomodoro.dart';
@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/':(context)=>Loader(),
-        '/home':(context)=>Home(),
+        '/':(context)=>MainPage(),
+        '/menu':(context)=>Home(),
         '/notes': (context) => Notes(),
         '/pomodoro': (context) => Pomodoro(),
         '/attendence':(context)=>Attendence(),

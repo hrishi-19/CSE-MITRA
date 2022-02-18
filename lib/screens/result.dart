@@ -90,42 +90,42 @@ class _ResultState extends State<Result> {
                           ],
                           rows: [
                             DataRow(cells: [
-                              DataCell(Text('up',style: homeWidgetHeading.copyWith(fontSize: 16))),
+                              DataCell(Text('UP',style: homeWidgetHeading.copyWith(fontSize: 16))),
                               DataCell(Text(data.ia1['up'].toString())),
                               DataCell(Text(data.ia2['up'].toString())),
                               DataCell(Text(data.ia3['up'].toString())),
 
                             ]),
                             DataRow(cells: [
-                              DataCell(Text('cns',style: homeWidgetHeading.copyWith(fontSize: 16))),
+                              DataCell(Text('CNS',style: homeWidgetHeading.copyWith(fontSize: 16))),
                               DataCell(Text(data.ia1['cns'].toString())),
                               DataCell(Text(data.ia2['cns'].toString())),
                               DataCell(Text(data.ia3['cns'].toString())),
 
                             ]),
                             DataRow(cells: [
-                              DataCell(Text('me',style: homeWidgetHeading.copyWith(fontSize: 16))),
+                              DataCell(Text('M&E',style: homeWidgetHeading.copyWith(fontSize: 16))),
                               DataCell(Text(data.ia1['me'].toString())),
                               DataCell(Text(data.ia2['me'].toString())),
                               DataCell(Text(data.ia3['me'].toString())),
 
                             ]),
                             DataRow(cells: [
-                              DataCell(Text('atc',style: homeWidgetHeading.copyWith(fontSize: 16))),
+                              DataCell(Text('ATC',style: homeWidgetHeading.copyWith(fontSize: 16))),
                               DataCell(Text(data.ia1['atc'].toString())),
                               DataCell(Text(data.ia1['atc'].toString())),
                               DataCell(Text(data.ia1['atc'].toString())),
 
                             ]),
                             DataRow(cells: [
-                              DataCell(Text('dbms',style: homeWidgetHeading.copyWith(fontSize: 16))),
+                              DataCell(Text('DBMS',style: homeWidgetHeading.copyWith(fontSize: 16))),
                               DataCell(Text(data.ia1['dbms'].toString())),
                               DataCell(Text(data.ia2['dbms'].toString())),
                               DataCell(Text(data.ia3['dbms'].toString())),
 
                             ]),
                             DataRow(cells: [
-                              DataCell(Text('adp',style: homeWidgetHeading.copyWith(fontSize: 16))),
+                              DataCell(Text('ADP',style: homeWidgetHeading.copyWith(fontSize: 16))),
                               DataCell(Text(data.ia1['adp'].toString())),
                               DataCell(Text(data.ia2['adp'].toString())),
                               DataCell(Text(data.ia3['adp'].toString())),
