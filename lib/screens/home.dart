@@ -42,7 +42,9 @@ class MainPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width/1.7,
                 height: MediaQuery.of(context).size.height/15,
                 child: ElevatedButton(
-                  onPressed: () {  },
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/menu');
+                  },
                   style: ButtonStyle(
                      shape:MaterialStateProperty.all<RoundedRectangleBorder>(
                          RoundedRectangleBorder(
