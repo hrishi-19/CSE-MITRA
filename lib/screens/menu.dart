@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mitra/provider/authentication.dart';
+import 'package:mitra/utility/homecard.dart';
 import 'package:mitra/widgets/HomeWidget.dart';
 import 'package:mitra/widgets/bottom_navbar.dart';
 
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -14,6 +14,42 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   AuthClass authClass=AuthClass();
+  List<HomeWidget> widgets=[];
+  List<homecard> cards=[
+    homecard(title: 'Assignments',
+        desc: 'upload your\n assignments here',
+        route:'/notes',
+        img_url:'assets/images/book.png'  ),
+    homecard(title: 'Attendence',
+        desc: 'check your\n attendence',
+        route:'/attendence',
+        img_url:'assets/images/attd.jpg'  ),
+    homecard(title: 'Pomodoro',
+        desc: 'Be more productive with\n our work!',
+        route:'/pomodoro',
+        img_url:'assets/images/pomodoro-timer.jpg'  ),
+
+  ];
+
+  void addCards(){
+    cards.forEach((element) {
+      widgets.add(HomeWidget(
+          heading: element.title,
+          description: element.desc,
+          route: element.route,
+          img_path: element.img_url));
+    });
+  }
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    addCards();
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +65,13 @@ class _HomeState extends State<Home> {
               ),
               child: Column(
                 children: [
-                  Expanded(child: ListView(
-                    children: [
-                      HomeWidget(heading:'Attendence', description: 'Check your\n attendence',route: '/attendence',img_path: 'assets/images/attd.jpg'),
-                      HomeWidget(heading: 'Assignments', description: 'upload your \n assignmenst here',route: '/notes',img_path: 'assets/images/book.png'),
-                      HomeWidget(heading:'Pomodoro', description: 'Be more productive with\n our work!',route: '/pomodoro',img_path: 'assets/images/pomodoro-timer.jpg'),
-
-                    ],
-                  )),
+                  Expanded(
+                      child:ListView.builder(
+                        itemCount: widgets.length,
+                          itemBuilder: (context,index){
+                          return widgets[index];
+                          }
+                      ) ),
 
 
                 ],
