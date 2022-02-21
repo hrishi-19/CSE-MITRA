@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mitra/screens/result.dart';
+import 'package:mitra/utility/iaMark.dart';
 import 'package:mitra/widgets/bottom_navbar.dart';
 class Attendence extends StatefulWidget {
   const Attendence({Key? key}) : super(key: key);
@@ -13,15 +15,23 @@ class Attendence extends StatefulWidget {
 class _AttendenceState extends State<Attendence> {
   var data;
   var wordup;
-  var marks;
+  late MarkResult res;
 
   Future<String> getJson() {
     return DefaultAssetBundle.of(context).loadString("data/marks.json");
   }
-  Future<Map<String,dynamic>> getData(String val) async {
+  Future<MarkResult> getData(String val) async {
     data=jsonDecode(await getJson())[val];
+    res=MarkResult(name: data['name'],
+        course: data['course'],
+        sem: data['sem'],
+        sec: data['sec'],
+        ia1: data['ia1'],
+        ia2: data['ia2'],
+        ia3: data['ia3']);
 
-   return data;
+  print(res);
+   return res;
     //print(dataIndex);
   }
   @override
@@ -35,10 +45,35 @@ class _AttendenceState extends State<Attendence> {
       backgroundColor: Colors.white,
       body:   SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(25),
+          padding: EdgeInsets.all(15),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                   Expanded(
+                     flex: 1,
+                     child: Image(
+                      image: AssetImage('assets/images/attd.jpg'),
+                      width: 200,
+                      height: 200
+                  ),
+                   ),
+                  Expanded(
+                    flex:1,
+                    child: Text(
+                      "Internal Assessment Result",
+                      style: GoogleFonts.josefinSans(
+                        color:  Color(0XFF211551),
+                        fontSize: 25,
+                        fontWeight:FontWeight.bold
+
+                      ),
+                    ),
+                  )
+                ],
+              ),
               TextField(
                 decoration: InputDecoration(
                   hintText: "Enter USN",
@@ -58,6 +93,7 @@ class _AttendenceState extends State<Attendence> {
 
 
               },
+                elevation: 10,
               child: Text("Submit",
               style: TextStyle(
                 fontSize: 15,
