@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 const homeWidgetHeading=  TextStyle(
@@ -6,7 +7,6 @@ const homeWidgetHeading=  TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.bold
 );
-
 
 
 const homeWidgetdesc=TextStyle(

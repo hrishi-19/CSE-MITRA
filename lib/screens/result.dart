@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mitra/utility/constants.dart';
 import 'package:mitra/utility/iaMark.dart';
 import 'package:mitra/widgets/bottom_navbar.dart';
@@ -23,62 +24,85 @@ class _ResultState extends State<Result> {
   @override
   Widget build(BuildContext context) {
             return Scaffold(
+              backgroundColor: Colors.white,
               body:SafeArea(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                   Container(
-                     width:double.infinity,
-                     height: 200,
-                     decoration: BoxDecoration(
-                       // image: DecorationImage(
-                       //   image: AssetImage('assets/images/bg.jpg'),
-                       //   fit: BoxFit.cover
-                       // )
-                     ),
-                     child: Padding(
-                       padding: EdgeInsets.all(10),
-                       child:  RichText(
-                           text: TextSpan(
-                               children: [
-                                 TextSpan(
-                                     text: "USN : ",
-                                     style: homeWidgetHeading.copyWith(fontSize: 16)
-                                 ), TextSpan(
-                                     text: usn.toUpperCase(),
-                                     style: homeWidgetdesc
-                                 ),
-                                 TextSpan(
-                                     text: "\nNAME : ",
-                                     style: homeWidgetHeading.copyWith(fontSize: 16)
-                                 ), TextSpan(
-                                     text: data.name.toUpperCase(),
-                                     style: homeWidgetdesc
-                                 ),TextSpan(
-                                     text: "\nCOURSE : ",
-                                     style: homeWidgetHeading.copyWith(fontSize: 16)
-                                 ), TextSpan(
-                                     text: data.course.toUpperCase(),
-                                     style: homeWidgetdesc
-                                 ),
-                                 TextSpan(
-                                     text: "\nSEM ",
-                                     style: homeWidgetHeading.copyWith(fontSize: 16)
-                                 ), TextSpan(
-                                     text: data.sem.toString(),
-                                     style: homeWidgetdesc
-                                 ),TextSpan(
-                                     text: "\nSEC: ",
-                                     style: homeWidgetHeading.copyWith(fontSize: 16)
-                                 ), TextSpan(
-                                     text: data.sec.toUpperCase(),
-                                     style: homeWidgetdesc
-                                 ),
-                               ]
-                           )
-                       )
-                     ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Image(
+                            image: AssetImage('assets/images/attd.jpg'),
+                            width: 200,
+                            height: 200
+                        ),
+                      ),
+                      Expanded(
+                         flex: 2,
+                          child:  RichText(
+                              text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "USN : ",
+                                        style: homeWidgetHeading.copyWith(fontSize: 16,fontWeight: FontWeight.w600)
+                                    ), TextSpan(
+                                        text: usn.toUpperCase(),
+                                        style: GoogleFonts.josefinSans(
+                                          color: Color(0XFF868290 ),
+                                         fontSize: 16,
+                                        ),
+                                    ),
+                                    TextSpan(
+                                        text: "\nNAME : ",
+                                        style: homeWidgetHeading.copyWith(fontSize: 16,fontWeight: FontWeight.w600)
+                                    ), TextSpan(
+                                        text: data.name.toUpperCase(),
+                                      style: GoogleFonts.josefinSans(
+                                        color: Color(0XFF868290 ),
+                                        fontSize: 16,
+
+                                      ),
+                                    ),TextSpan(
+                                        text: "\nCOURSE : ",
+                                        style: homeWidgetHeading.copyWith(fontSize: 16,fontWeight: FontWeight.w600)
+                                    ), TextSpan(
+                                        text: data.course.toUpperCase(),
+                                      style: GoogleFonts.josefinSans(
+                                        color: Color(0XFF868290 ),
+                                        fontSize: 16,
+
+                                      ),
+                                    ),
+                                    TextSpan(
+                                        text: "\nSEM ",
+                                        style: homeWidgetHeading.copyWith(fontSize: 16,fontWeight: FontWeight.w600)
+                                    ), TextSpan(
+                                        text: data.sem.toString(),
+                                      style: GoogleFonts.josefinSans(
+                                        color: Color(0XFF868290 ),
+                                        fontSize: 16,
+
+                                      ),
+                                    ),TextSpan(
+                                        text: "\nSEC: ",
+                                        style: homeWidgetHeading.copyWith(fontSize: 16,fontWeight: FontWeight.w600)
+                                    ), TextSpan(
+                                        text: data.sec.toUpperCase(),
+                                      style: GoogleFonts.josefinSans(
+                                        color: Color(0XFF868290 ),
+                                        fontSize: 16,
+
+                                      ),
+                                    ),
+                                  ]
+                              )
+                          )
+                      ),
+                    ],
                    ),
                     Expanded(
                       child:DataTable(
@@ -97,7 +121,7 @@ class _ResultState extends State<Result> {
 
                             ]),
                             DataRow(cells: [
-                              DataCell(Text('CNS',style: homeWidgetHeading.copyWith(fontSize: 16))),
+                              DataCell(Text('CNS',style: homeWidgetHeading.copyWith(fontSize: 16),),),
                               DataCell(Text(data.ia1['cns'].toString())),
                               DataCell(Text(data.ia2['cns'].toString())),
                               DataCell(Text(data.ia3['cns'].toString())),
