@@ -51,6 +51,7 @@ class MainPage extends StatelessWidget {
                              borderRadius: BorderRadius.circular(15.0),
                          )
                      ),
+                    elevation: MaterialStateProperty.all<double>(10.0),
                     backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF512DA8)),
                       shadowColor:MaterialStateProperty.all<Color>(Color(0xFF512DA8))
                   ),
