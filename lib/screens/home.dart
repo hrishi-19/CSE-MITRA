@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mitra/provider/authentication.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
 
-
+AuthClass auth=AuthClass();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,6 @@ class MainPage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height/15,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/menu');
                   },
                   style: ButtonStyle(
                      shape:MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -58,7 +58,7 @@ class MainPage extends StatelessWidget {
                       shadowColor:MaterialStateProperty.all<Color>(Color(0xFF512DA8))
                   ),
                   child: Text(
-                    "Get Started",
+                    "Mitra",
                     style: GoogleFonts.josefinSans(
                       color: Colors.white70,
                       fontSize: 20,
@@ -74,11 +74,140 @@ class MainPage extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   height: 350,
+                  padding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
                   decoration: BoxDecoration(
                     color:Color(0xFF512DA8) ,
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(75),
-                        topLeft: Radius.circular(75))
+                        topLeft: Radius.circular(75)),
+                    boxShadow: [BoxShadow(
+                      color: Colors.black54,
+                      spreadRadius: 5,
+                      blurRadius: 15,
+                      offset:Offset(0.0,10.0)
+                    )]
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                    GestureDetector(
+                      onTap: (){
+                        auth.googleSignin(context);
+                      },
+                      child: Container(
+                        width:300,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white,
+
+                        ),
+                        padding: EdgeInsets.all(10),
+                        child:Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex:1,
+                                child: Image(
+                                  image: AssetImage('assets/images/googleAuth.png'),
+                                ),),
+                            Expanded(
+                              flex:2,
+                              child: Text(
+                                "Signin with Google",
+                                style: GoogleFonts.josefinSans(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold
+
+                                ),
+                              ),
+                            ),
+
+
+                          ],
+                        )
+                      ),
+                    ),
+                      // SizedBox(height: 50,),
+                      GestureDetector(
+                        onTap: (){
+
+                        },
+                        child: Container(
+                            width:300,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+
+                            ),
+                            padding: EdgeInsets.all(10),
+                            child:Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                    flex:1,
+                                    child: Image(
+                                      image: AssetImage('assets/images/mailAuth.png'),
+                                    )),
+                                Expanded(
+                                  flex:2,
+                                  child: Text(
+                                    "Signin with email",
+                                    style: GoogleFonts.josefinSans(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold
+
+                                    ),
+                                  ),
+                                ),
+
+
+                              ],
+                            )
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Container(
+                                margin: const EdgeInsets.only(left: 10.0, right: 20.0),
+                                child: Divider(
+                                  color: Colors.white,
+                                )),
+                          ),
+                          Text(
+                            "OR",
+                            style: GoogleFonts.josefinSans(
+                                color: Colors.white,
+                                fontSize: 15,
+                              
+
+                            ),),
+                          Expanded(
+                            child: Container(
+                                margin: const EdgeInsets.only(left: 10.0, right: 20.0),
+                                child: Divider(
+                                  color: Colors.white,
+                                )),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "New user ? Register",
+                        style: GoogleFonts.josefinSans(
+                          color: Colors.white,
+                          fontSize: 18,
+
+
+                        ),),
+
+
+
+                    ],
                   ),
                 ),
               )

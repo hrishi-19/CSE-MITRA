@@ -22,7 +22,7 @@ Future<void>googleSignin(BuildContext context)async {
   );
   try{
     UserCredential userCredential=await auth.signInWithCredential(credential);
-    Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+    Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false);
   }
   catch(e){
     final snackBar=SnackBar(content:Text(e.toString()));
@@ -44,6 +44,8 @@ Future<void>googleSignin(BuildContext context)async {
 }
 Future<void>signout(BuildContext context)async{
   await auth.signOut();
+
+
   Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
 
 }
