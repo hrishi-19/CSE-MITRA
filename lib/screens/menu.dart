@@ -72,6 +72,9 @@ class _HomeState extends State<Home> {
                           return widgets[index];
                           }
                       ) ),
+                  RaisedButton(onPressed: (){
+                    authClass.signout(context);
+                  },child: Text("logout"),)
 
 
                 ],
