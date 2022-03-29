@@ -24,6 +24,7 @@ AuthClass auth=AuthClass();
       // ),
       body: SafeArea(
         child: Container(
+          color: Color(0xFFF3E5F5),
           // padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -36,7 +37,7 @@ AuthClass auth=AuthClass();
                   height: 150,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/mitra.jpg')
+                      image: AssetImage('assets/images/mitra.png')
                     )
                   ),
                 ),
@@ -54,8 +55,8 @@ AuthClass auth=AuthClass();
                          )
                      ),
                     elevation: MaterialStateProperty.all<double>(10.0),
-                    backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF512DA8)),
-                      shadowColor:MaterialStateProperty.all<Color>(Color(0xFF512DA8))
+                    backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFBA68C8)),
+                      shadowColor:MaterialStateProperty.all<Color>(Color(0xFFBA68C8))
                   ),
                   child: Text(
                     "Mitra",
@@ -76,7 +77,7 @@ AuthClass auth=AuthClass();
                   height: 350,
                   padding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
                   decoration: BoxDecoration(
-                    color:Color(0xFF512DA8) ,
+                    color:Color(0xFFBA68C8) ,
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(75),
                         topLeft: Radius.circular(75)),

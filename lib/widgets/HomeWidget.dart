@@ -11,11 +11,12 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder:(context,constraints)=>Padding(
+    return Container(
+      child:Padding(
         padding: EdgeInsets.all(20),
         child: Container(
-            width:constraints.maxWidth,
+          width: MediaQuery.of(context).size.width* 0.80,
+            height: 250,
             padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
             margin: EdgeInsets.only(
                 bottom: 25,
@@ -32,13 +33,13 @@ class HomeWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                  flex: 2,
+                  flex: 3,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [Text('$heading',
                       style: TextStyle(
                           color: Color(0XFF211551),
-                          fontSize: 22,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold
                       ),),
                       Padding(padding: EdgeInsets.only(
@@ -50,14 +51,14 @@ class HomeWidget extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: Color(0XFF868290 ),
-                              fontSize: 16,
+                              fontSize: 22,
 
                           ),),
                       ),
                      RaisedButton(onPressed: (){
                        print(route);
                       Navigator.pushNamed(context, route);
-                      },color: Colors.green,
+                      }, color: Colors.green,
                         child: Text("GO",
                           style: TextStyle(
                               fontSize: 20,
