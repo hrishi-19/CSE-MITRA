@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mitra/utility/constants.dart';
 import 'package:mitra/utility/iaMark.dart';
-import 'package:mitra/widgets/bottom_navbar.dart';
 
 class Result extends StatefulWidget {
     MarkResult data;
@@ -160,7 +159,7 @@ class _ResultState extends State<Result> {
                   ],
                 ),
               ),
-              bottomNavigationBar: Navbar(),
+
             );
 
   }
