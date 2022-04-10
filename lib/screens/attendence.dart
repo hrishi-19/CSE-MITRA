@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:mitra/screens/result.dart';
 import 'package:mitra/utility/iaMark.dart';
-import 'package:mitra/widgets/bottom_navbar.dart';
 class Attendence extends StatefulWidget {
   const Attendence({Key? key}) : super(key: key);
 
@@ -42,7 +42,7 @@ class _AttendenceState extends State<Attendence> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor:  Colors.white,
       body:   SafeArea(
         child: Padding(
           padding: EdgeInsets.all(15),
@@ -55,7 +55,7 @@ class _AttendenceState extends State<Attendence> {
                    Expanded(
                      flex: 1,
                      child: Image(
-                      image: AssetImage('assets/images/attd.jpg'),
+                      image: AssetImage('assets/images/attd.png'),
                       width: 200,
                       height: 200
                   ),
@@ -65,7 +65,7 @@ class _AttendenceState extends State<Attendence> {
                     child: Text(
                       "Internal Assessment Result",
                       style: GoogleFonts.josefinSans(
-                        color:  Color(0XFF211551),
+                        color:  HexColor("#4F42BB"),
                         fontSize: 25,
                         fontWeight:FontWeight.bold
 
@@ -77,6 +77,9 @@ class _AttendenceState extends State<Attendence> {
               TextField(
                 decoration: InputDecoration(
                   hintText: "Enter USN",
+                fillColor: Colors.white
+
+
 
                 ),
                 onChanged:(text) {
@@ -93,13 +96,13 @@ class _AttendenceState extends State<Attendence> {
 
 
               },
-                elevation: 10,
-              child: Text("Submit",
+                elevation: 0,
+                child: Text("Submit",
               style: TextStyle(
                 fontSize: 15,
                 color: Colors.white,
               ),),
-              color: Colors.green,),
+              color: HexColor("#4F42BB"),),
               // FutureBuilder(
               //     future:getData(value.toString()),
               //     builder:(context,snapshot){
@@ -170,7 +173,7 @@ class _AttendenceState extends State<Attendence> {
           ),
         ),
       ),
-        bottomNavigationBar:Navbar()
+
       );
 
   }

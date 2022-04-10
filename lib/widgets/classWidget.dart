@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mitra/screens/upload_file.dart';
 
 class ClassWidget extends StatelessWidget {
   late String name;
@@ -51,7 +52,9 @@ class ClassWidget extends StatelessWidget {
                    ),),
                Padding(padding: EdgeInsets.all(10)),
                RaisedButton(onPressed: (){
-    Navigator.pushNamed(context,route);},color: Colors.green,
+                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ImageUploads(folder: route)));
+                 },
+                 color: Colors.green,
                  child: Text("Upload",
                    style: TextStyle(
                        fontSize: 20,

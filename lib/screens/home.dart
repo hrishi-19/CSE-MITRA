@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:mitra/provider/authentication.dart';
 
 class MainPage extends StatelessWidget {
@@ -24,7 +26,7 @@ AuthClass auth=AuthClass();
       // ),
       body: SafeArea(
         child: Container(
-          color: Color(0xFFF3E5F5),
+          color: HexColor("#1A1F24"),
           // padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -55,14 +57,15 @@ AuthClass auth=AuthClass();
                          )
                      ),
                     elevation: MaterialStateProperty.all<double>(10.0),
-                    backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFBA68C8)),
-                      shadowColor:MaterialStateProperty.all<Color>(Color(0xFFBA68C8))
+                    backgroundColor: MaterialStateProperty.all<HexColor>(HexColor("#090F13") ),
+                      shadowColor:MaterialStateProperty.all<HexColor>( HexColor("#090F13"))
                   ),
                   child: Text(
                     "Mitra",
                     style: GoogleFonts.josefinSans(
-                      color: Colors.white70,
-                      fontSize: 20,
+                      color:HexColor("#4F42BB"),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
 
                     ),
                   ),
@@ -77,7 +80,7 @@ AuthClass auth=AuthClass();
                   height: 350,
                   padding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
                   decoration: BoxDecoration(
-                    color:Color(0xFFBA68C8) ,
+                    color: HexColor("#090F13") ,
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(75),
                         topLeft: Radius.circular(75)),
@@ -177,13 +180,13 @@ AuthClass auth=AuthClass();
                             child: Container(
                                 margin: const EdgeInsets.only(left: 10.0, right: 20.0),
                                 child: Divider(
-                                  color: Colors.white,
+                                  color: HexColor("#4F42BB"),
                                 )),
                           ),
                           Text(
                             "OR",
                             style: GoogleFonts.josefinSans(
-                                color: Colors.white,
+                                color:HexColor("#4F42BB"),
                                 fontSize: 15,
                               
 
@@ -192,7 +195,7 @@ AuthClass auth=AuthClass();
                             child: Container(
                                 margin: const EdgeInsets.only(left: 10.0, right: 20.0),
                                 child: Divider(
-                                  color: Colors.white,
+                                  color: HexColor("#4F42BB"),
                                 )),
                           ),
                         ],
@@ -200,8 +203,8 @@ AuthClass auth=AuthClass();
                       Text(
                         "New user ? Register",
                         style: GoogleFonts.josefinSans(
-                          color: Colors.white,
-                          fontSize: 18,
+                          color: HexColor("#4F42BB"),
+                          fontSize: 20,
 
 
                         ),),

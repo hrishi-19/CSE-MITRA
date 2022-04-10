@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -7,10 +6,11 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:path/path.dart';
 
 class ImageUploads extends StatefulWidget {
-  ImageUploads({Key? key}) : super(key: key);
+  String folder;
+  ImageUploads({required this.folder});
 
   @override
-  _ImageUploadsState createState() => _ImageUploadsState();
+  _ImageUploadsState createState() => _ImageUploadsState(folder);
 }
 
 class _ImageUploadsState extends State<ImageUploads> {
@@ -19,6 +19,8 @@ class _ImageUploadsState extends State<ImageUploads> {
 
   File? _photo;
   final ImagePicker _picker = ImagePicker();
+  String folder;
+  _ImageUploadsState(this.folder);
 
   Future imgFromGallery() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
@@ -49,12 +51,12 @@ class _ImageUploadsState extends State<ImageUploads> {
   Future uploadFile() async {
     if (_photo == null) return;
     final fileName = basename(_photo!.path);
-    final destination = 'files/$fileName';
+    final destination = '$folder/$fileName';
 
     try {
       final ref = firebase_storage.FirebaseStorage.instance
           .ref(destination)
-          .child('file/');
+          .child('$folder/');
       await ref.putFile(_photo!);
     } catch (e) {
       print('error occured');
