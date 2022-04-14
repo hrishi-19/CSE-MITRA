@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,6 +8,7 @@ import 'package:mitra/provider/authentication.dart';
 import 'package:mitra/utility/constants.dart';
 import 'package:mitra/utility/homecard.dart';
 import 'package:mitra/widgets/HomeWidget.dart';
+import 'package:mitra/widgets/glassbox.dart';
 
 
 class Home extends StatefulWidget {
@@ -48,7 +51,10 @@ class _HomeState extends State<Home> {
           img_path: element.img_url,
       colr: element.color,));
     });
+
   }
+
+
 
 
 
@@ -56,6 +62,8 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     addCards();
+
+
 
   }
 
@@ -171,7 +179,8 @@ class _HomeState extends State<Home> {
                                     ]
                                   ),
                                  ),
-                               )
+                               ),
+
 
                               ],
                             )
@@ -179,6 +188,7 @@ class _HomeState extends State<Home> {
                         ],
                       )
                     ),
+                    Glassbox(),
                     SizedBox(height: 30,),
                     Container(
                       height: 300,

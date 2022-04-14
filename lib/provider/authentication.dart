@@ -1,3 +1,4 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,7 +23,7 @@ Future<void>googleSignin(BuildContext context)async {
   );
   try{
     UserCredential userCredential=await auth.signInWithCredential(credential);
-    Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false);
+
   }
   catch(e){
     final snackBar=SnackBar(content:Text(e.toString()));
@@ -48,5 +49,9 @@ Future<void>signout(BuildContext context)async{
 
   Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
 
+}
+Future<bool>Signup(String email,String password)async{
+await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+ return Future.value(true);
 }
 }
