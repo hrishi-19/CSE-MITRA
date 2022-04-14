@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,6 +8,7 @@ import 'package:mitra/provider/authentication.dart';
 import 'package:mitra/utility/constants.dart';
 import 'package:mitra/utility/homecard.dart';
 import 'package:mitra/widgets/HomeWidget.dart';
+import 'package:mitra/widgets/glassbox.dart';
 
 
 class Home extends StatefulWidget {
@@ -28,7 +31,7 @@ class _HomeState extends State<Home> {
         route:'/attendence',
         img_url:'assets/images/attd.png',color:Colors.cyan  ),
     homecard(title: 'Pomodoro',
-        desc: 'Be more productive with our work!',
+        desc: 'Work with pomodomro!',
         route:'/pomodoro',
         img_url:'assets/images/pomodoro-timer.png',color: Colors.tealAccent ),
     homecard(title: "quiz",
@@ -48,7 +51,10 @@ class _HomeState extends State<Home> {
           img_path: element.img_url,
       colr: element.color,));
     });
+
   }
+
+
 
 
 
@@ -56,6 +62,8 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     addCards();
+
+
 
   }
 
@@ -65,25 +73,20 @@ class _HomeState extends State<Home> {
     String? user_name=authClass.auth.currentUser!.displayName;
     String? img=authClass.auth.currentUser!.photoURL;
     return Scaffold(
-      backgroundColor: Colors.white,
         body:SafeArea(
             child: Container(
               height: MediaQuery.of(context).size.height,
               padding: EdgeInsets.symmetric(horizontal: 5),
               decoration: BoxDecoration(
-                // image: DecorationImage(
-                //     image: AssetImage("assets/images/bg.jpg"),
-                //     fit: BoxFit.cover
-                // ),
-                color:  Color(0xFF303030),
+
+                color: Colors.grey[200],
 
               ),
-              child: SingleChildScrollView(
-                child: Column(
+              child: Column(
                   children: [
                     Container(
                       width: double.infinity,
-                      height: 270,
+                      height: 250,
                       margin: EdgeInsets.only(top: 10),
 
                       decoration: BoxDecoration(
@@ -101,7 +104,7 @@ class _HomeState extends State<Home> {
                             alignment: Alignment.centerRight,
                             child: Text("Mitra",
                             style: GoogleFonts.josefinSans(
-                              color:HexColor("#4F42BB"),
+                              color:HexColor("#665DD0"),
                               fontWeight: FontWeight.bold,
                               fontSize: 25,
 
@@ -114,7 +117,7 @@ class _HomeState extends State<Home> {
                               authClass.signout(context);
                             },child: Text("logout",
                               style: GoogleFonts.josefinSans(
-                                color:Colors.white,
+                                color:Color(0xFF303030),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
 
@@ -133,8 +136,8 @@ class _HomeState extends State<Home> {
                                     padding: EdgeInsets.all(7),
                                     decoration: BoxDecoration(
                                         border: Border.all(
-                                            color: Colors.white,
-                                            width: 2
+                                            color: Color(0xFF303030),
+                                            width: 4
                                         ),
                                       borderRadius: BorderRadius.circular(50)
                                     ),
@@ -155,15 +158,15 @@ class _HomeState extends State<Home> {
                                  padding: EdgeInsets.only(left: 10),
                                  child: RichText(
                                   text: TextSpan(
-                                    text: "Hello\n",
+                                    text: "Hello,\n",
                                     style: homeWidgetHeading.copyWith(
-                                      color: HexColor("#4F42BB"),
+                                      color: HexColor("#665DD0"),
                                       fontSize: 40
                                     ),
                                     children: [
                                       TextSpan(text: "${user_name}",
                                     style:GoogleFonts.josefinSans(
-                                      color:Colors.white,
+                                      color:Color(0xFF303030),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 25,
 
@@ -171,7 +174,8 @@ class _HomeState extends State<Home> {
                                     ]
                                   ),
                                  ),
-                               )
+                               ),
+
 
                               ],
                             )
@@ -179,9 +183,10 @@ class _HomeState extends State<Home> {
                         ],
                       )
                     ),
+                    Glassbox(),
                     SizedBox(height: 30,),
                     Container(
-                      height: 300,
+                      height: 250,
                         child:ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: widgets.length,
@@ -196,7 +201,7 @@ class _HomeState extends State<Home> {
                   ],
 
                 ),
-              ),
+
             ),
         ),
 

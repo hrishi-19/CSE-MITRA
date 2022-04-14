@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mitra/screens/menu.dart';
 import 'package:mitra/screens/home.dart';
-import 'package:mitra/screens/attendence.dart';
+import 'package:mitra/screens/marks.dart';
 import 'package:mitra/screens/notes.dart';
 import 'package:mitra/screens/pomodoro.dart';
 

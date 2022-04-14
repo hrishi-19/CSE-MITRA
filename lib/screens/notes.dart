@@ -6,7 +6,7 @@ class Notes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey.shade200,
         body:SafeArea(
           child: Padding(
             padding: EdgeInsets.all(5),
