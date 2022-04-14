@@ -21,17 +21,17 @@ class ClassWidget extends StatelessWidget {
           ),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(40),
-              color: Colors.white,
+              color: Colors.grey.shade200,
               boxShadow: [
                 BoxShadow(
-                    color: Colors.grey.shade300,
+                    color: Colors.grey.shade400,
                     offset: Offset(4.0,4.0),
-                    spreadRadius: 1.0,
+                    spreadRadius: 3.0,
                     blurRadius: 10.0),
                 BoxShadow(
-                    color: Colors.grey.shade50,
+                    color: Colors.white,
                     offset: Offset(-4.0,-4.0),
-                    spreadRadius: 1.0,
+                    spreadRadius: 5.0,
                     blurRadius: 10.0),
               ]
           ),

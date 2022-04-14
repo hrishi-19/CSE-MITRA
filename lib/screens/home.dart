@@ -38,7 +38,7 @@ class _MainPageState extends State<MainPage> {
 
       body: SafeArea(
         child: Container(
-          color: HexColor("#1A1F24"),
+          color: Colors.grey[200],
           // padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -59,29 +59,33 @@ class _MainPageState extends State<MainPage> {
               Container(
                 width: MediaQuery.of(context).size.width/1.7,
                 height: MediaQuery.of(context).size.height/15,
-                child: ElevatedButton(
-                  onPressed: () {
-                  },
-                  style: ButtonStyle(
-                      shape:MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          )
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white,
+                        blurRadius: 5,
+                        spreadRadius: 3,
+                        offset: Offset(-5,-5)
                       ),
-                      elevation: MaterialStateProperty.all<double>(10.0),
-                      backgroundColor: MaterialStateProperty.all<HexColor>(HexColor("#090F13") ),
-                      shadowColor:MaterialStateProperty.all<HexColor>( HexColor("#090F13"))
+                      BoxShadow(
+                          color: Colors.grey.shade300,
+                          blurRadius: 5,
+                          spreadRadius: 3,
+                          offset: Offset(5,5)
+                      )
+                    ]
                   ),
                   child: Text(
                     "Mitra",
                     style: GoogleFonts.josefinSans(
-                      color:HexColor("#4F42BB"),
+                      color:HexColor("#665DD0"),
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
 
                     ),
-                  ),
-
                 ),
               ),
               SizedBox(height: 50,),
@@ -92,15 +96,15 @@ class _MainPageState extends State<MainPage> {
                   height: 350,
                   padding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
                   decoration: BoxDecoration(
-                      color: HexColor("#090F13") ,
+                      color: Colors.grey[200] ,
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(75),
                           topLeft: Radius.circular(75)),
                       boxShadow: [BoxShadow(
-                          color: Colors.black54,
+                          color: Colors.white,
                           spreadRadius: 5,
                           blurRadius: 15,
-                          offset:Offset(0.0,10.0)
+                          offset:Offset(-10,-10.0)
                       )]
                   ),
                   child: Column(
@@ -116,7 +120,19 @@ class _MainPageState extends State<MainPage> {
                             height: 50,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: Colors.white,
+                              color: Colors.grey[200],
+                                boxShadow: [BoxShadow(
+                                    color: Colors.grey.shade500,
+                                    spreadRadius: 3,
+                                    blurRadius: 10,
+                                    offset:Offset(5,5.0)
+                                ),
+                                  BoxShadow(
+                                      color: Colors.white,
+                                      spreadRadius: 3,
+                                      blurRadius: 10,
+                                      offset:Offset(-3,-3.0)
+                                  )]
 
                             ),
                             padding: EdgeInsets.all(10),
@@ -156,7 +172,21 @@ class _MainPageState extends State<MainPage> {
                             height: 50,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: Colors.white,
+                              color: Colors.grey.shade200,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.grey.shade500,
+                                      spreadRadius: 3,
+                                      blurRadius: 10,
+                                      offset:Offset(5,5.0)
+                                  ),
+                                  BoxShadow(
+                                      color: Colors.white,
+                                      spreadRadius: 3,
+                                      blurRadius: 10,
+                                      offset:Offset(-3,-3.0)
+                                  )
+                                ]
 
                             ),
                             padding: EdgeInsets.all(10),
@@ -193,14 +223,15 @@ class _MainPageState extends State<MainPage> {
                             child: Container(
                                 margin: const EdgeInsets.only(left: 10.0, right: 20.0),
                                 child: Divider(
-                                  color: HexColor("#4F42BB"),
+                                  color: HexColor("#665DD0"),
                                 )),
                           ),
                           Text(
                             "OR",
                             style: GoogleFonts.josefinSans(
-                              color:HexColor("#4F42BB"),
+                              color:HexColor("#665DD0"),
                               fontSize: 15,
+                              fontWeight: FontWeight.w700
 
 
                             ),),
@@ -208,7 +239,7 @@ class _MainPageState extends State<MainPage> {
                             child: Container(
                                 margin: const EdgeInsets.only(left: 10.0, right: 20.0),
                                 child: Divider(
-                                  color: HexColor("#4F42BB"),
+                                  color: HexColor("#665DD0"),
                                 )),
                           ),
                         ],
@@ -221,7 +252,7 @@ class _MainPageState extends State<MainPage> {
                           "New user ? Register",
                           style: GoogleFonts.josefinSans(
                             color: HexColor("#4F42BB"),
-                            fontSize: 20,
+                            fontSize: 20, fontWeight: FontWeight.w700
 
 
                           ),),
