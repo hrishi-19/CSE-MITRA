@@ -6,26 +6,26 @@ class HomeWidget extends StatelessWidget {
   final String description;
   final String route;
   final String img_path;
-  HomeWidget({required this.heading,required this.description,required this.route,required this.img_path});
+  final Color colr;
+  HomeWidget({required this.heading,required this.description,required this.route,required this.img_path,required this.colr});
 
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder:(context,constraints)=>Padding(
-        padding: EdgeInsets.all(20),
+    return Container(
+      child:Padding(
+        padding: EdgeInsets.all(10),
         child: Container(
-            width:constraints.maxWidth,
-            padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+
+          width: MediaQuery.of(context).size.width* 0.80,
+            height: 175,
+            padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
             margin: EdgeInsets.only(
                 bottom: 25,
             ),
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/homeCard.jpg"),
-                fit: BoxFit.cover
-              ),
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(10),  color:colr ,
+
 
             ),
             child: Row(
@@ -37,27 +37,27 @@ class HomeWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [Text('$heading',
                       style: TextStyle(
-                          color: Color(0XFF211551),
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.w800
                       ),),
                       Padding(padding: EdgeInsets.only(
                           top: 20
                       )),
                       Padding(
-                        padding: EdgeInsets.only(bottom: 10),
+                        padding: EdgeInsets.only(bottom: 5),
                         child: Text(description,
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              color: Color(0XFF868290 ),
-                              fontSize: 16,
+                              color: Colors.white,
+                              fontSize: 22,
 
                           ),),
                       ),
                      RaisedButton(onPressed: (){
                        print(route);
                       Navigator.pushNamed(context, route);
-                      },color: Colors.green,
+                      }, color:Color(0xFF303030),
                         child: Text("GO",
                           style: TextStyle(
                               fontSize: 20,
@@ -72,8 +72,8 @@ class HomeWidget extends StatelessWidget {
                 Flexible(
                   flex: 1,
                   child: Container(
-                    width: 60,
-                    height: 60,
+                    width: 150,
+                    height: 100,
                     child: Image(
                       image: AssetImage('$img_path'),
                     ),

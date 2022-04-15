@@ -1,5 +1,5 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -22,7 +22,7 @@ Future<void>googleSignin(BuildContext context)async {
   );
   try{
     UserCredential userCredential=await auth.signInWithCredential(credential);
-    Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false);
+
   }
   catch(e){
     final snackBar=SnackBar(content:Text(e.toString()));

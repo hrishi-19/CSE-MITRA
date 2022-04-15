@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mitra/widgets/bottom_navbar.dart';
+import 'package:hexcolor/hexcolor.dart';
 class Pomodoro extends StatefulWidget {
   const Pomodoro({Key? key}) : super(key: key);
 
@@ -29,61 +29,72 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF303030),
       body: Padding(
         padding: const EdgeInsets.only(top: 30),
-        child: Column(
-          children: [
-             Image(image: AssetImage('assets/images/pomodoro-timer.jpg')),
-            Expanded(
-                child: Center(
-                  child: AnimatedBuilder(
-                    animation: controller,
-                    builder: (context,child)=> Text(CountText,
-                    style: const TextStyle(
-                      fontSize: 55,
-                      fontWeight: FontWeight.bold
-                    ),),
-                  ),
-                )),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FloatingActionButton(onPressed: (){
-                    if(controller.isAnimating){
-                      controller.stop();
-                      setState(() {
-                        playing=false;
-                      });
-                    }else{
-                      controller.reverse(from:controller.value==0?1.0:controller.value);
-                      setState(() {
-                        playing=true;
-                      });
-                    }
-
-                  },
-                      elevation: 1.0,
-                  child:Icon(
-                    Icons.play_arrow_rounded,
-
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
+          child: Column(
+            children: [
+               Center(child: Image(image: AssetImage('assets/images/pomodoro-timer.png'))),
+              Expanded(
+                  child: Center(
+                    child: AnimatedBuilder(
+                      animation: controller,
+                      builder: (context,child)=> Text(CountText,
+                      style: const TextStyle(
+                        fontSize: 55,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      ),),
+                    ),
                   )),
-                  SizedBox(width: 30,),
-                  FloatingActionButton(onPressed: (){
-                    controller.reset();
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FloatingActionButton(
+                        backgroundColor: HexColor("#4F42BB"),
+                        onPressed: (){
+                      if(controller.isAnimating){
+                        controller.stop();
+                        setState(() {
+                          playing=false;
+                        });
+                      }else{
+                        controller.reverse(from:controller.value==0?1.0:controller.value);
+                        setState(() {
+                          playing=true;
+                        });
+                      }
+
                     },
-                      child:Icon(
-                          Icons.reset_tv
-                      ),
-                    elevation: 1.0,
-                  )
-                ],
-              ),
-            )
-          ],
+                        elevation: 1.0,
+                    child:Icon(
+                      Icons.play_arrow_rounded,
+
+                    )),
+                    SizedBox(width: 30,),
+                    FloatingActionButton(
+                      backgroundColor: HexColor("#4F42BB"),
+                      onPressed: (){
+                      controller.reset();
+
+
+                      }
+                      ,
+                        child:Icon(
+                            Icons.reset_tv
+                        ),
+                      elevation: 1.0,
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
