@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mitra/screens/menu.dart';
 import 'package:mitra/screens/home.dart';
 import 'package:mitra/screens/marks.dart';
+import 'package:mitra/screens/assignment.dart';
 import 'package:mitra/screens/notes.dart';
 import 'package:mitra/screens/pomodoro.dart';
 
@@ -24,9 +25,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/':(context)=>MainPage(),
         '/menu':(context)=>Home(),
-        '/notes': (context) => Notes(),
+        '/assignment': (context) => Assignment(),
         '/pomodoro': (context) => Pomodoro(),
         '/attendence':(context)=>Attendence(),
+        '/notes':(context)=>Notes()
 
 
       },

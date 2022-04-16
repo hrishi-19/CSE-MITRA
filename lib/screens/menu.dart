@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,22 +21,22 @@ class _HomeState extends State<Home> {
   List<homecard> cards=[
     homecard(title: 'Assignments',
         desc: 'upload your\n assignments here',
-        route:'/notes',
+        route:'/assignment',
         img_url:'assets/images/book.png',
-        color:Color(0xFFEF9A9A)),
+        ),
     homecard(title: 'Results',
         desc: 'get your results over here',
         route:'/attendence',
-        img_url:'assets/images/attd.png',color:Colors.cyan  ),
+        img_url:'assets/images/attd.png',),
     homecard(title: 'Pomodoro',
         desc: 'Work with pomodomro!',
         route:'/pomodoro',
-        img_url:'assets/images/pomodoro-timer.png',color: Colors.tealAccent ),
-    homecard(title: "quiz",
-        desc: "test your quiz knowledge",
-        route: "/",
-        img_url: 'assets/images/quiz.png',
-        color: Colors.deepPurpleAccent)
+        img_url:'assets/images/pomodoro.png',),
+    homecard(title: "Notes",
+        desc: "take up your notes",
+        route: "/notes",
+        img_url: 'assets/images/notes.png',
+      )
 
   ];
 
@@ -49,7 +47,7 @@ class _HomeState extends State<Home> {
           description: element.desc,
           route: element.route,
           img_path: element.img_url,
-      colr: element.color,));
+     ));
     });
 
   }
@@ -62,6 +60,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     addCards();
+
 
 
 
@@ -191,7 +190,9 @@ class _HomeState extends State<Home> {
                           scrollDirection: Axis.horizontal,
                           itemCount: widgets.length,
                             itemBuilder: (context,index){
-                            return widgets[index];
+                            return Container(
+                              margin: EdgeInsets.only(top: 10),
+                                child: widgets[index]);
 
                             }
                         ) ),

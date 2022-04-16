@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 class Pomodoro extends StatefulWidget {
   const Pomodoro({Key? key}) : super(key: key);
@@ -29,14 +30,26 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF303030),
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.grey.shade200,
+        title: Text("Assignments",
+          style: GoogleFonts.josefinSans(
+            color:HexColor("#665DD0"),
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+
+          ),
+        ),
+      ),
+      backgroundColor: Colors.grey.shade200,
       body: Padding(
         padding: const EdgeInsets.only(top: 30),
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
           child: Column(
             children: [
-               Center(child: Image(image: AssetImage('assets/images/pomodoro-timer.png'))),
+               Center(child: Image(image: AssetImage('assets/images/pomodoro.png'))),
               Expanded(
                   child: Center(
                     child: AnimatedBuilder(
@@ -45,7 +58,7 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
                       style: const TextStyle(
                         fontSize: 55,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white
+                        color: Color(0xFF303030)
                       ),),
                     ),
                   )),
