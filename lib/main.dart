@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mitra/screens/assignment.dart';
 import 'package:mitra/screens/menu.dart';
 import 'package:mitra/screens/home.dart';
 import 'package:mitra/screens/marks.dart';
-import 'package:mitra/screens/assignment.dart';
 import 'package:mitra/screens/notes.dart';
 import 'package:mitra/screens/pomodoro.dart';
 
@@ -25,10 +25,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/':(context)=>MainPage(),
         '/menu':(context)=>Home(),
-        '/assignment': (context) => Assignment(),
+        '/notes': (context) => Notes(),
         '/pomodoro': (context) => Pomodoro(),
+        '/assignment':(context)=>Assignment(),
         '/attendence':(context)=>Attendence(),
-        '/notes':(context)=>Notes()
+
 
 
       },
@@ -36,8 +37,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

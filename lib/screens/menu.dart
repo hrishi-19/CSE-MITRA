@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +17,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  AuthClass authClass=AuthClass();
+  AuthClass auth=AuthClass();
   List<HomeWidget> widgets=[];
   List<homecard> cards=[
     homecard(title: 'Assignments',
@@ -64,13 +65,15 @@ class _HomeState extends State<Home> {
 
 
 
+
   }
 
 
   @override
   Widget build(BuildContext context) {
-    String? user_name=authClass.auth.currentUser!.displayName;
-    String? img=authClass.auth.currentUser!.photoURL;
+    String name=FirebaseAuth.instance.currentUser!.displayName.toString();
+    String imgUrl=FirebaseAuth.instance.currentUser!.photoURL.toString();
+
     return Scaffold(
         body:SafeArea(
             child: Container(
@@ -113,7 +116,7 @@ class _HomeState extends State<Home> {
                             padding: EdgeInsets.only(top:10),
                             alignment: Alignment.centerRight,
                             child:   GestureDetector(onTap: (){
-                              authClass.signout(context);
+                             auth.signout(context).whenComplete(() =>  Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false));
                             },child: Text("logout",
                               style: GoogleFonts.josefinSans(
                                 color:Color(0xFF303030),
@@ -141,7 +144,7 @@ class _HomeState extends State<Home> {
                                       borderRadius: BorderRadius.circular(50)
                                     ),
                                     child: CircleAvatar(
-                                      backgroundImage:NetworkImage(img!),
+                                      backgroundImage:NetworkImage(imgUrl),
                                       radius: 35,
                                     ),
                                   ),
@@ -163,7 +166,7 @@ class _HomeState extends State<Home> {
                                       fontSize: 40
                                     ),
                                     children: [
-                                      TextSpan(text: "${user_name}",
+                                      TextSpan(text: "$name",
                                     style:GoogleFonts.josefinSans(
                                       color:Color(0xFF303030),
                                       fontWeight: FontWeight.bold,

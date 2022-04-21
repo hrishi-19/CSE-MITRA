@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mitra/provider/authentication.dart';
@@ -16,7 +15,6 @@ class _SignupMailState extends State<SignupMail> {
   late String email;
   late String pass;
   GlobalKey<FormState>_formkey=GlobalKey<FormState>();
-  late AuthClass _auth;
 
 
   @override
@@ -28,6 +26,7 @@ class _SignupMailState extends State<SignupMail> {
 
 
   @override
+  AuthClass auth=AuthClass();
 
   Widget build(BuildContext context) {
     final iskeyBoard=MediaQuery.of(context).viewInsets.bottom!=0;
@@ -124,6 +123,8 @@ class _SignupMailState extends State<SignupMail> {
                     Container(
                       margin: EdgeInsets.only(top:20),
                       child: RaisedButton(onPressed: (){
+                        auth.emailSignUp(email, pass).whenComplete(() => Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false));
+
 
                       },
                       color: Colors.green,

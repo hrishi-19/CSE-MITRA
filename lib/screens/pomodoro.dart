@@ -33,7 +33,7 @@ class _PomodoroState extends State<Pomodoro>with TickerProviderStateMixin {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.grey.shade200,
-        title: Text("Assignments",
+        title: Text("Pomodoro",
           style: GoogleFonts.josefinSans(
             color:HexColor("#665DD0"),
             fontWeight: FontWeight.bold,

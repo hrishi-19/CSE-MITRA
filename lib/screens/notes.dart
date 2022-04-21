@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,14 +23,16 @@ class _NotesState extends State<Notes> {
       backgroundColor: Colors.grey.shade200,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+          padding: EdgeInsets.only(top: 5),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
              Row(
                mainAxisAlignment: MainAxisAlignment.start,
                children: [
-                 Image(image: AssetImage('assets/images/notes.png')),
+                 Padding(
+                   padding: EdgeInsets.only(left: 10),
+                     child: Image(image: AssetImage('assets/images/notes.png'),)),
                  Text("Your Recent notes",
                    style: GoogleFonts.josefinSans(
                      color:HexColor("#665DD0"),
@@ -53,15 +54,31 @@ class _NotesState extends State<Notes> {
                       );
                     }
                     if(snapshot.hasData){
-                      return  GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 20,
-                        mainAxisSpacing: 20,
-                        childAspectRatio: 1
+                      return Container(
+                        padding: EdgeInsets.only(top: 35,left: 10,right: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50)),
+                          color: Colors.grey.shade200,
+                            boxShadow: [BoxShadow(
+                                color: Colors.grey.shade500,
+                                spreadRadius: 3,
+                                blurRadius: 10,
+                                offset:Offset(5,5.0)
+                            ),
+                              BoxShadow(
+                                  color: Colors.white,
+                                  spreadRadius: 3,
+                                  blurRadius: 10,
+                                  offset:Offset(-3,-3.0)
+                              )]
                         ),
-                        children: snapshot.data!.docs.map((note) => NoteCard((){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NoteReader( doc: note,)));
-                        }, note)).toList());
+                        child: ListView(
+                            children: snapshot.data!.docs.map((note) => NoteCard((){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NoteReader( doc: note)));
+                            }, note)).toList()
+                        )
+
+                      );
                       
                     }
                     return Text("no notes",style: TextStyle(color:Colors.black),);
