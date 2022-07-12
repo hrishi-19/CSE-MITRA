@@ -6,7 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 class NoteReader extends StatefulWidget {
   QueryDocumentSnapshot doc;
-   NoteReader({ required this.doc});
+  NoteReader({ required this.doc});
 
   @override
   _NoteReaderState createState() => _NoteReaderState(doc);
