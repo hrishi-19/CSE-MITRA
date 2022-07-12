@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,27 +17,27 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  AuthClass authClass=AuthClass();
+  AuthClass auth=AuthClass();
   List<HomeWidget> widgets=[];
   List<homecard> cards=[
     homecard(title: 'Assignments',
         desc: 'upload your\n assignments here',
-        route:'/notes',
+        route:'/assignment',
         img_url:'assets/images/book.png',
-        color:Color(0xFFEF9A9A)),
+        ),
     homecard(title: 'Results',
         desc: 'get your results over here',
         route:'/attendence',
-        img_url:'assets/images/attd.png',color:Colors.cyan  ),
+        img_url:'assets/images/attd.png',),
     homecard(title: 'Pomodoro',
         desc: 'Work with pomodomro!',
         route:'/pomodoro',
-        img_url:'assets/images/pomodoro-timer.png',color: Colors.tealAccent ),
-    homecard(title: "quiz",
-        desc: "test your quiz knowledge",
-        route: "/",
-        img_url: 'assets/images/quiz.png',
-        color: Colors.deepPurpleAccent)
+        img_url:'assets/images/pomodoro.png',),
+    homecard(title: "Notes",
+        desc: "take up your notes",
+        route: "/notes",
+        img_url: 'assets/images/notes.png',
+      )
 
   ];
 
@@ -49,7 +48,7 @@ class _HomeState extends State<Home> {
           description: element.desc,
           route: element.route,
           img_path: element.img_url,
-      colr: element.color,));
+     ));
     });
 
   }
@@ -65,13 +64,16 @@ class _HomeState extends State<Home> {
 
 
 
+
+
   }
 
 
   @override
   Widget build(BuildContext context) {
-    String? user_name=authClass.auth.currentUser!.displayName;
-    String? img=authClass.auth.currentUser!.photoURL;
+    String name=FirebaseAuth.instance.currentUser!.displayName.toString();
+    String imgUrl=FirebaseAuth.instance.currentUser!.photoURL.toString();
+
     return Scaffold(
         body:SafeArea(
             child: Container(
@@ -114,7 +116,7 @@ class _HomeState extends State<Home> {
                             padding: EdgeInsets.only(top:10),
                             alignment: Alignment.centerRight,
                             child:   GestureDetector(onTap: (){
-                              authClass.signout(context);
+                             auth.signout(context).whenComplete(() =>  Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false));
                             },child: Text("logout",
                               style: GoogleFonts.josefinSans(
                                 color:Color(0xFF303030),
@@ -142,7 +144,7 @@ class _HomeState extends State<Home> {
                                       borderRadius: BorderRadius.circular(50)
                                     ),
                                     child: CircleAvatar(
-                                      backgroundImage:NetworkImage(img!),
+                                      backgroundImage:NetworkImage(imgUrl),
                                       radius: 35,
                                     ),
                                   ),
@@ -164,7 +166,7 @@ class _HomeState extends State<Home> {
                                       fontSize: 40
                                     ),
                                     children: [
-                                      TextSpan(text: "${user_name}",
+                                      TextSpan(text: "$name",
                                     style:GoogleFonts.josefinSans(
                                       color:Color(0xFF303030),
                                       fontWeight: FontWeight.bold,
@@ -191,7 +193,9 @@ class _HomeState extends State<Home> {
                           scrollDirection: Axis.horizontal,
                           itemCount: widgets.length,
                             itemBuilder: (context,index){
-                            return widgets[index];
+                            return Container(
+                              margin: EdgeInsets.only(top: 10),
+                                child: widgets[index]);
 
                             }
                         ) ),
