@@ -1,14 +1,12 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mitra/provider/authentication.dart';
 import 'package:mitra/screens/email-signup.dart';
-import 'package:mitra/screens/menu.dart';
+
+import 'email-signin.dart';
 
 class MainPage extends StatefulWidget {
 
@@ -18,7 +16,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  AuthClass auth=AuthClass();
   var rr= Random();
 
 
@@ -32,6 +29,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    AuthClass auth=AuthClass();
 
     return Scaffold(
 
@@ -83,7 +81,7 @@ class _MainPageState extends State<MainPage> {
                     style: GoogleFonts.josefinSans(
                       color:HexColor("#665DD0"),
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
+                      fontSize: 30,
 
                     ),
                 ),
@@ -112,8 +110,8 @@ class _MainPageState extends State<MainPage> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          auth.googleSignin(context).whenComplete(() =>
-                              Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false));
+                         auth.googleSignin(context).whenComplete(() => Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false));
+
                         },
                         child: Container(
                             width:300,
@@ -165,6 +163,8 @@ class _MainPageState extends State<MainPage> {
                       // SizedBox(height: 50,),
                       GestureDetector(
                         onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignInMail()));
+
 
                         },
                         child: Container(

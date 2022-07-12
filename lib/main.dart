@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mitra/screens/assignment.dart';
 import 'package:mitra/screens/menu.dart';
 import 'package:mitra/screens/home.dart';
 import 'package:mitra/screens/marks.dart';
@@ -26,7 +27,9 @@ class MyApp extends StatelessWidget {
         '/menu':(context)=>Home(),
         '/notes': (context) => Notes(),
         '/pomodoro': (context) => Pomodoro(),
+        '/assignment':(context)=>Assignment(),
         '/attendence':(context)=>Attendence(),
+
 
 
       },
@@ -34,8 +37,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

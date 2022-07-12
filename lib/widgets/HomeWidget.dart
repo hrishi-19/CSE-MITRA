@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mitra/screens/upload_file.dart';
+import 'package:hexcolor/hexcolor.dart';
 class HomeWidget extends StatelessWidget {
   final String heading;
   final String description;
   final String route;
   final String img_path;
-  final Color colr;
-  HomeWidget({required this.heading,required this.description,required this.route,required this.img_path,required this.colr});
+  HomeWidget({required this.heading,required this.description,required this.route,required this.img_path});
 
 
   @override
@@ -24,7 +23,21 @@ class HomeWidget extends StatelessWidget {
                 bottom: 25,
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),  color:colr ,
+              borderRadius: BorderRadius.circular(25),  color:Colors.grey.shade200 ,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-5,-5),
+                  spreadRadius: 5,
+                  blurRadius: 15
+                ),
+                BoxShadow(
+                    color: Colors.grey.shade400,
+                    offset: Offset(5,5),
+                    spreadRadius: 3,
+                    blurRadius: 15
+                )
+              ]
 
 
             ),
@@ -37,7 +50,7 @@ class HomeWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [Text('$heading',
                       style: TextStyle(
-                          color: Colors.white,
+                          color:Color(0xFF303030),
                           fontSize: 28,
                           fontWeight: FontWeight.w800
                       ),),
@@ -49,7 +62,7 @@ class HomeWidget extends StatelessWidget {
                         child: Text(description,
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              color: Colors.white,
+                              color: Color(0xFF303030),
                               fontSize: 22,
 
                           ),),
@@ -57,7 +70,7 @@ class HomeWidget extends StatelessWidget {
                      RaisedButton(onPressed: (){
                        print(route);
                       Navigator.pushNamed(context, route);
-                      }, color:Color(0xFF303030),
+                      }, color:Colors.green,
                         child: Text("GO",
                           style: TextStyle(
                               fontSize: 20,

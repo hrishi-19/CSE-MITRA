@@ -21,6 +21,7 @@ class _HomeState extends State<Home> {
   List<HomeWidget> widgets=[];
   List<homecard> cards=[
     homecard(title: 'Assignments',
+<<<<<<< HEAD
       desc: 'upload your\n assignments here',
       route:'/assignment',
       img_url:'assets/images/book.png', 
@@ -38,17 +39,44 @@ class _HomeState extends State<Home> {
       route: "/notes",
       img_url: 'assets/images/notes.png',
     )
+=======
+        desc: 'upload your\n assignments here',
+        route:'/assignment',
+        img_url:'assets/images/book.png',
+        ),
+    homecard(title: 'Results',
+        desc: 'get your results over here',
+        route:'/attendence',
+        img_url:'assets/images/attd.png',),
+    homecard(title: 'Pomodoro',
+        desc: 'Work with pomodomro!',
+        route:'/pomodoro',
+        img_url:'assets/images/pomodoro.png',),
+    homecard(title: "Notes",
+        desc: "take up your notes",
+        route: "/notes",
+        img_url: 'assets/images/notes.png',
+      )
+>>>>>>> d7412454dc05c4119c51fb6bdc8d5093b8df3d57
 
   ];
 
   void addCards(){
     cards.forEach((element) {
       widgets.add(HomeWidget(
+<<<<<<< HEAD
         heading: element.title,
         description: element.desc,
         route: element.route,
         img_path: element.img_url,
       ));
+=======
+          heading: element.title,
+          description: element.desc,
+          route: element.route,
+          img_path: element.img_url,
+     ));
+>>>>>>> d7412454dc05c4119c51fb6bdc8d5093b8df3d57
     });
 
   }
@@ -73,6 +101,18 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     String name=FirebaseAuth.instance.currentUser!.displayName.toString();
     String imgUrl=FirebaseAuth.instance.currentUser!.photoURL.toString();
+<<<<<<< HEAD
+=======
+
+    return Scaffold(
+        body:SafeArea(
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              padding: EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+
+                color: Colors.grey[200],
+>>>>>>> d7412454dc05c4119c51fb6bdc8d5093b8df3d57
 
     return Scaffold(
       body:SafeArea(
@@ -112,6 +152,7 @@ class _HomeState extends State<Home> {
 
                             ),
                           )),
+<<<<<<< HEAD
                       Container(
                         padding: EdgeInsets.only(top:10),
                         alignment: Alignment.centerRight,
@@ -142,6 +183,43 @@ class _HomeState extends State<Home> {
                                           width: 4
                                       ),
                                       borderRadius: BorderRadius.circular(50)
+=======
+                          Container(
+                            padding: EdgeInsets.only(top:10),
+                            alignment: Alignment.centerRight,
+                            child:   GestureDetector(onTap: (){
+                             auth.signout(context).whenComplete(() =>  Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false));
+                            },child: Text("logout",
+                              style: GoogleFonts.josefinSans(
+                                color:Color(0xFF303030),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+
+                              ),),
+                            ),
+                          ),
+                          Container(
+
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+
+                                  child: Container(
+                                    padding: EdgeInsets.all(7),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Color(0xFF303030),
+                                            width: 4
+                                        ),
+                                      borderRadius: BorderRadius.circular(50)
+                                    ),
+                                    child: CircleAvatar(
+                                      backgroundImage:NetworkImage(imgUrl),
+                                      radius: 35,
+                                    ),
+>>>>>>> d7412454dc05c4119c51fb6bdc8d5093b8df3d57
                                   ),
                                   child: CircleAvatar(
                                     backgroundImage:NetworkImage(imgUrl),
@@ -160,6 +238,7 @@ class _HomeState extends State<Home> {
                                 padding: EdgeInsets.only(left: 10),
                                 child: RichText(
                                   text: TextSpan(
+<<<<<<< HEAD
                                       text: "Hello,\n",
                                       style: homeWidgetHeading.copyWith(
                                           color: HexColor("#665DD0"),
@@ -174,6 +253,22 @@ class _HomeState extends State<Home> {
 
                                           ),),
                                       ]
+=======
+                                    text: "Hello,\n",
+                                    style: homeWidgetHeading.copyWith(
+                                      color: HexColor("#665DD0"),
+                                      fontSize: 40
+                                    ),
+                                    children: [
+                                      TextSpan(text: "$name",
+                                    style:GoogleFonts.josefinSans(
+                                      color:Color(0xFF303030),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25,
+
+                                    ),),
+                                    ]
+>>>>>>> d7412454dc05c4119c51fb6bdc8d5093b8df3d57
                                   ),
                                 ),
                               ),
@@ -182,6 +277,7 @@ class _HomeState extends State<Home> {
                             ],
                           )
                       )
+<<<<<<< HEAD
                     ],
                   )
               ),
@@ -196,6 +292,20 @@ class _HomeState extends State<Home> {
                         return Container(
                             margin: EdgeInsets.only(top: 10),
                             child: widgets[index]);
+=======
+                    ),
+                    Glassbox(),
+                    SizedBox(height: 30,),
+                    Container(
+                      height: 250,
+                        child:ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: widgets.length,
+                            itemBuilder: (context,index){
+                            return Container(
+                              margin: EdgeInsets.only(top: 10),
+                                child: widgets[index]);
+>>>>>>> d7412454dc05c4119c51fb6bdc8d5093b8df3d57
 
                       }
                   ) ),

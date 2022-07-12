@@ -87,7 +87,7 @@ class _GlassboxState extends State<Glassbox> {
           children: [
             Text("Did you know?",
             style:GoogleFonts.josefinSans(
-                color:HexColor("#665DD0"),
+                color:Colors.redAccent,
                 fontSize: 20,
                 fontWeight: FontWeight.w900
 
@@ -103,7 +103,7 @@ class _GlassboxState extends State<Glassbox> {
                   return
                     Text(text,
                       style: GoogleFonts.josefinSans(
-                          color: HexColor("#665DD0"),
+                          color: Colors.green.shade700,
                           fontSize: 18,
                           fontWeight: FontWeight.bold
 
