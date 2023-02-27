@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class AuthClass{
   GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: [
@@ -21,6 +22,7 @@ class AuthClass{
         );
         try{
           UserCredential userCredential=await auth.signInWithCredential(credential);
+
 
         }
         catch(e){
@@ -44,7 +46,6 @@ class AuthClass{
   }
   Future<bool>emailSignIn(String email,String pass)async{
     AuthCredential authCredential =await auth.signInWithEmailAndPassword(email: email, password: pass) as AuthCredential;
-    User? user = auth.currentUser;
     return Future.value(true);
   }
   Future<bool>emailSignUp(String email,String pass)async{
@@ -52,7 +53,6 @@ class AuthClass{
     return Future.value(true);
   }
   Future<bool>signout(BuildContext context)async{
-    User user =await auth.currentUser!;
     await _googleSignIn.disconnect();
     await auth.signOut();
     return Future.value(true);
