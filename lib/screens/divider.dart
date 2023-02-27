@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:mitra/provider/authentication.dart';
+import 'package:mitra/service/authentication.dart';
 import 'package:mitra/screens/home.dart';
 import 'package:mitra/screens/menu.dart';
 

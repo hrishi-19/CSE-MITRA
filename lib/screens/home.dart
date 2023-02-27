@@ -1,9 +1,12 @@
 import 'dart:math';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mitra/provider/authentication.dart';
+import 'package:mitra/service/authentication.dart';
+import 'package:mitra/service/firestore.dart';
+import 'package:mitra/service/shredpref.dart';
 import 'package:mitra/screens/email-signup.dart';
 
 import 'email-signin.dart';
@@ -17,6 +20,9 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   var rr= Random();
+  AuthClass auth=AuthClass();
+  FirebaseAuth auths=FirebaseAuth.instance;
+
 
 
   @override
@@ -29,7 +35,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    AuthClass auth=AuthClass();
+
 
     return Scaffold(
 
@@ -110,7 +116,14 @@ class _MainPageState extends State<MainPage> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                         auth.googleSignin(context).whenComplete(() => Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false));
+                         auth.googleSignin(context).whenComplete((){
+                             setpref();
+
+                              addUser(auths.currentUser!.displayName.toString());
+                             Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false);
+
+
+                        });
 
                         },
                         child: Container(

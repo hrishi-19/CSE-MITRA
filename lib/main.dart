@@ -6,6 +6,7 @@ import 'package:mitra/screens/home.dart';
 import 'package:mitra/screens/marks.dart';
 import 'package:mitra/screens/notes.dart';
 import 'package:mitra/screens/pomodoro.dart';
+import 'package:mitra/screens/splash.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/':(context)=>MainPage(),
+        '/':(context)=>splash(),
+        '/home':(context)=>MainPage(),
         '/menu':(context)=>Home(),
         '/notes': (context) => Notes(),
         '/pomodoro': (context) => Pomodoro(),

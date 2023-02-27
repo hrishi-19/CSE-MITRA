@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,7 @@ class Notes extends StatefulWidget {
 class _NotesState extends State<Notes> {
   TextEditingController _title=TextEditingController();
   TextEditingController _content=TextEditingController();
+  var firebaseUser= FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +76,7 @@ class _NotesState extends State<Notes> {
                         ),
                         child: ListView(
                             children: snapshot.data!.docs.map((note) => NoteCard((){
+                              print(note['title']);
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NoteReader( doc: note)));
                             }, note)).toList()
                         )
@@ -148,7 +151,9 @@ class _NotesState extends State<Notes> {
 
             )),),
       TextButton(onPressed: ()async{
-        FirebaseFirestore.instance.collection("Notes").add({
+
+        FirebaseFirestore.instance.collection("Notes").
+        add({
           "title":_title.text,
           "content":_content.text,
           "date":DateTime.now().toString().substring(0,20),

@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mitra/provider/authentication.dart';
+import 'package:mitra/service/authentication.dart';
+
+import '../service/firestore.dart';
+import '../service/shredpref.dart';
 
 class SignupMail extends StatefulWidget {
   const SignupMail({Key? key}) : super(key: key);
@@ -14,6 +17,7 @@ class SignupMail extends StatefulWidget {
 class _SignupMailState extends State<SignupMail> {
   late String email;
   late String pass;
+  late String name;
   GlobalKey<FormState>_formkey=GlobalKey<FormState>();
 
 
@@ -87,6 +91,23 @@ class _SignupMailState extends State<SignupMail> {
                   children: [
                     TextFormField(
                       decoration: InputDecoration(
+                        border: OutlineInputBorder(),labelText: "Enter Your Name",
+
+
+                      ),
+                      validator: (_val){
+                        if(_val!.isEmpty){
+                          return "cant be empty";
+
+                        }
+                        else return null;
+                      },
+                      onChanged: (val){
+                        name=val;
+                      },
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(
                         border: OutlineInputBorder(),labelText: "Email",
 
                       ),
@@ -111,7 +132,7 @@ class _SignupMailState extends State<SignupMail> {
                       obscureText: true,
                       validator: (_val){
                         if(_val!.length<6){
-                          return "cant be empty";
+                          return "Password must be more than 6 characters";
 
                         }
                         else return null;
@@ -123,9 +144,12 @@ class _SignupMailState extends State<SignupMail> {
                     Container(
                       margin: EdgeInsets.only(top:20),
                       child: RaisedButton(onPressed: (){
-                        auth.emailSignUp(email, pass).whenComplete(() => Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false));
+                        auth.emailSignUp(email, pass).whenComplete((){
+                          setpref();
+                          addUser(name);
+                          Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false);
 
-
+                        });
                       },
                       color: Colors.green,
                       textColor: Colors.white,

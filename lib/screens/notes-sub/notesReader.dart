@@ -18,6 +18,7 @@ class _NoteReaderState extends State<NoteReader> {
   _NoteReaderState(this.doc);
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         child: Container(

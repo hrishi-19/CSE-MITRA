@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mitra/provider/authentication.dart';
+import 'package:mitra/service/authentication.dart';
+import 'package:mitra/service/shredpref.dart';
 
 class SignInMail extends StatefulWidget {
   const SignInMail({Key? key}) : super(key: key);
@@ -123,7 +124,10 @@ class _SignInMailState extends State<SignInMail> {
                       Container(
                         margin: EdgeInsets.only(top:20),
                         child: RaisedButton(onPressed: (){
-                          auth.emailSignIn(email.trim(), pass).whenComplete(() => Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false));
+                          auth.emailSignIn(email.trim(), pass).whenComplete((){
+                              setpref();
+                              Navigator.pushNamedAndRemoveUntil(context, '/menu', (route) => false);
+                          });
 
 
                         },
